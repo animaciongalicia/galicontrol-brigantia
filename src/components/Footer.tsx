@@ -20,7 +20,7 @@ function ColumnTitle({ children }: { children: React.ReactNode }) {
 
 export function Footer() {
   return (
-    <footer className="mt-20 bg-brand-900 text-brand-100">
+    <footer className="bg-brand-900 text-brand-100">
       <div className="container-page py-14 lg:py-16">
         <div className="grid gap-10 lg:grid-cols-5 lg:gap-12">
           {/* 2/5 — Marca */}
