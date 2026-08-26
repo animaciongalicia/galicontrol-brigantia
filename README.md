@@ -29,26 +29,25 @@ npm start           # sirve el build
 
 ## 2. ⚠️ Datos pendientes antes de publicar
 
-Estos valores son **placeholders**, no datos reales. Sustitúyelos:
+Ya configurados: teléfono y WhatsApp (**+34 626 58 81 72**), logotipo, colores
+corporativos y dirección.
 
-| Dato | Dónde | Valor actual |
+Siguen pendientes:
+
+| Dato | Dónde | Estado |
 | --- | --- | --- |
-| Teléfono | `NEXT_PUBLIC_PHONE` | `PENDIENTE_TELEFONO` |
-| WhatsApp | `NEXT_PUBLIC_WHATSAPP` | `PENDIENTE_WHATSAPP` |
-| Email | `NEXT_PUBLIC_EMAIL` | `PENDIENTE_EMAIL` |
-| Dominio | `NEXT_PUBLIC_SITE_URL` | `https://galicontrolbrigantia.es` |
-| CIF | `src/config/site.ts` → `taxId` | `PENDIENTE_CIF` |
+| Email de contacto | `NEXT_PUBLIC_EMAIL` | `PENDIENTE_EMAIL` |
+| Buzón que recibe los formularios | `LEADS_EMAIL` | sin definir |
+| Claves de Resend | `RESEND_API_KEY`, `FROM_EMAIL` | sin definir |
+| Dominio definitivo | `NEXT_PUBLIC_SITE_URL` | `galicontrolbrigantia.es` (provisional) |
+| CIF | `NEXT_PUBLIC_TAX_ID` | `PENDIENTE_CIF` |
 | Redes sociales | `NEXT_PUBLIC_INSTAGRAM`, etc. | sin definir |
-| Logotipo | `src/components/Logo.tsx` | marca provisional en HTML/CSS |
-| Colores | `src/app/globals.css` (bloque `@theme`) | paleta provisional |
-| Fotografías | `public/` + componente `<Photo />` | huecos con marcador |
+| Verificación de Search Console | `NEXT_PUBLIC_GSC_VERIFICATION` | sin definir |
+| Fotografías reales | `public/` + componente `<Photo />` | huecos con marcador |
 
 Mientras un dato siga en `PENDIENTE_*`, la web **no lo publica en los datos
-estructurados (JSON-LD)**, para no dar información falsa a Google. Los botones
-de llamar y WhatsApp siguen visibles, pero apuntan a un número vacío: son
-inservibles hasta que configures el teléfono.
-
----
+estructurados (JSON-LD)** ni en el aviso legal, para no dar información falsa.
+El email es el único dato de contacto que hoy aparece vacío en el footer.
 
 ## 3. Dónde cambiar cada cosa
 
@@ -85,14 +84,23 @@ el bloque resumido de la portada y el JSON-LD `FAQPage`. Para que una pregunta
 salga también en la portada, añade su texto exacto a `homeFaqQuestions`.
 
 ### Logotipo
-`src/components/Logo.tsx` contiene una marca provisional hecha con HTML y CSS.
-Para poner el logo real: copia el archivo a `public/logo.svg` y sustituye el
-contenido de `<LogoMark />` por un `<Image src="/logo.svg" … />` (las
-instrucciones están comentadas en el propio archivo). No hay que tocar nada más.
+`src/components/Logo.tsx`. La rosa de los vientos de la marca está redibujada
+como SVG en línea: se ve nítida a cualquier tamaño, funciona sobre fondo claro
+y oscuro y no genera ninguna petición extra. También está suelta en
+`public/logo-marca.svg` y como favicon en `src/app/icon.svg`.
+
+El logotipo (la palabra «GALICONTROL») está compuesto con la tipografía de la
+web, no con la tipografía celta del logo original. Si consigues el lockup
+horizontal en SVG o PNG con fondo transparente, déjalo en `public/logo.svg` y
+sustituye el contenido de `<LogoMark />` por un `<Image src="/logo.svg" … />`:
+las instrucciones exactas están comentadas en el propio archivo.
 
 ### Colores corporativos
-`src/app/globals.css`, bloque `@theme`. Cambiando los tokens `--color-brand-*`
-y `--color-accent-*` cambia el color de toda la web.
+`src/app/globals.css`, bloque `@theme`. La escala `--color-brand-*` sale del
+azul del logotipo (`#3F62BE`). El `--color-accent-*` (ámbar) **no pertenece al
+logo**: es un acento funcional que se usa solo en el botón de envío del
+formulario y en el CTA del menú móvil. Para eliminarlo, iguala esos tokens a
+los de `brand`.
 
 ### Fotografías
 El componente `<Photo />` (`src/components/Photo.tsx`) muestra un marcador con
@@ -111,6 +119,12 @@ El diseño no se rompe: el hueco ya está reservado.
 ### Aviso para buscadores IA
 `public/llms.txt`. Si cambia el dominio, actualiza también las URLs de ese
 archivo (es estático y no lee la configuración).
+
+### Google Search Console
+Da de alta el dominio en Search Console, elige la verificación por etiqueta
+HTML y copia **solo el valor** del atributo `content` en la variable
+`NEXT_PUBLIC_GSC_VERIFICATION`. Tras el redeploy, pulsa «Verificar» y envía
+`https://tudominio/sitemap.xml`.
 
 ### Año del aviso de copyright
 `src/components/Footer.tsx` → constante `year`.

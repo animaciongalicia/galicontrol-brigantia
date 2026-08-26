@@ -52,7 +52,7 @@ export function SectionHeading({
       {eyebrow ? (
         <p
           className={`mb-3 text-xs font-bold uppercase tracking-[0.16em] ${
-            tone === "light" ? "text-accent-400" : "text-brand-500"
+            tone === "light" ? "text-accent-400" : "text-brand-600"
           }`}
         >
           {eyebrow}
@@ -137,7 +137,7 @@ export function CheckList({
           <Check
             aria-hidden="true"
             className={`mt-1 h-4 w-4 shrink-0 ${
-              tone === "light" ? "text-accent-400" : "text-brand-500"
+              tone === "light" ? "text-accent-400" : "text-brand-600"
             }`}
           />
           <span>{item}</span>

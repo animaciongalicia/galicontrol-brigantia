@@ -18,10 +18,9 @@ export function isPending(value: string | undefined | null): boolean {
 }
 
 /** Teléfono en formato internacional sin espacios: +34XXXXXXXXX */
-const phoneE164 = process.env.NEXT_PUBLIC_PHONE ?? "PENDIENTE_TELEFONO";
+const phoneE164 = process.env.NEXT_PUBLIC_PHONE ?? "+34626588172";
 /** WhatsApp en formato wa.me: solo dígitos con prefijo país, p.ej. 34600000000 */
-const whatsappNumber =
-  process.env.NEXT_PUBLIC_WHATSAPP ?? "PENDIENTE_WHATSAPP";
+const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP ?? "34626588172";
 const email = process.env.NEXT_PUBLIC_EMAIL ?? "PENDIENTE_EMAIL";
 const siteUrl = (
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://galicontrolbrigantia.es"
@@ -44,7 +43,7 @@ export const site = {
   /** Razón social (facturación y avisos legales). */
   legalName: "GALICONTROL BRIGANTIA SL",
   /** CIF: pendiente de facilitar. Se muestra en el aviso legal cuando exista. */
-  taxId: "PENDIENTE_CIF",
+  taxId: process.env.NEXT_PUBLIC_TAX_ID ?? "PENDIENTE_CIF",
 
   tagline:
     "Control de accesos y personal auxiliar para eventos, locales y empresas en A Coruña y Galicia.",
@@ -93,6 +92,14 @@ export const site = {
 export const socialProfiles: string[] = Object.values(site.social).filter(
   (v) => !isPending(v),
 );
+
+/**
+ * Código de verificación de Google Search Console (la cadena de la etiqueta
+ * `google-site-verification`, no la etiqueta entera). Se define en Vercel como
+ * NEXT_PUBLIC_GSC_VERIFICATION. Si está vacío no se imprime nada.
+ */
+export const googleSiteVerification =
+  process.env.NEXT_PUBLIC_GSC_VERIFICATION ?? "";
 
 export const hasPhone = !isPending(site.contact.phone);
 export const hasWhatsapp = !isPending(site.contact.whatsapp);

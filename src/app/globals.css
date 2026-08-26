@@ -3,23 +3,27 @@
 /*
  * PALETA CORPORATIVA
  * -------------------------------------------------------------------------
- * Estos valores son la identidad provisional de GaliControl mientras no se
- * incorpore la paleta exacta del logo original. Para cambiar los colores de
- * TODA la web basta con editar los tokens de este bloque.
+ * Escala construida a partir del azul del logotipo de GaliControl. Para
+ * cambiar los colores de TODA la web basta con editar los tokens de este
+ * bloque: ningún componente define colores de marca por su cuenta.
  */
 @theme {
-  --color-brand-50: #eef6fb;
-  --color-brand-100: #d7e9f5;
-  --color-brand-200: #aed3ea;
-  --color-brand-300: #7ab5da;
-  --color-brand-400: #4794c6;
-  --color-brand-500: #2276ac;
-  --color-brand-600: #175d8c;
-  --color-brand-700: #124a70;
-  --color-brand-800: #0e3a58;
-  --color-brand-900: #0b2c42;
-  --color-brand-950: #071c2b;
+  /* Azul del logotipo de GaliControl (#3F62BE) y su escala derivada. */
+  --color-brand-50: #f2f5fd;
+  --color-brand-100: #e3e9fa;
+  --color-brand-200: #c8d4f3;
+  --color-brand-300: #a0b4e8;
+  --color-brand-400: #748fd6;
+  --color-brand-500: #506cc7;
+  --color-brand-600: #3f62be;
+  --color-brand-700: #34509d;
+  --color-brand-800: #2b407a;
+  --color-brand-900: #1e2d55;
+  --color-brand-950: #121b34;
 
+  /* Acento cálido. No pertenece al logotipo: se usa solo en el botón de
+     envío y en el CTA del menú móvil, donde el contraste mejora la
+     conversión. Para eliminarlo, iguala estos tokens a los de brand. */
   --color-accent-100: #fdefd6;
   --color-accent-200: #fadfae;
   --color-accent-300: #f7c877;

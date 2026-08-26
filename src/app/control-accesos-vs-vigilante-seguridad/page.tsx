@@ -64,7 +64,7 @@ export default function ComparativaPage() {
       <Breadcrumbs items={crumbs} />
 
       <Section>
-        <p className="mb-3 text-xs font-bold uppercase tracking-[0.16em] text-brand-500">
+        <p className="mb-3 text-xs font-bold uppercase tracking-[0.16em] text-brand-600">
           Información
         </p>
         <h1 className="max-w-3xl text-[1.85rem] font-bold leading-[1.15] text-brand-900 sm:text-4xl">

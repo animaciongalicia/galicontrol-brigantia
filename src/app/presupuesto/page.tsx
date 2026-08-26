@@ -111,7 +111,7 @@ export default async function PresupuestoPage({
                 <li className="flex items-start gap-3">
                   <PhoneCall
                     aria-hidden="true"
-                    className="mt-0.5 h-5 w-5 shrink-0 text-brand-500"
+                    className="mt-0.5 h-5 w-5 shrink-0 text-brand-600"
                   />
                   <span>
                     Te contactamos para concretar los detalles que falten.
@@ -120,7 +120,7 @@ export default async function PresupuestoPage({
                 <li className="flex items-start gap-3">
                   <Clock
                     aria-hidden="true"
-                    className="mt-0.5 h-5 w-5 shrink-0 text-brand-500"
+                    className="mt-0.5 h-5 w-5 shrink-0 text-brand-600"
                   />
                   <span>
                     Te enviamos el presupuesto con las horas incluidas y las
@@ -130,7 +130,7 @@ export default async function PresupuestoPage({
                 <li className="flex items-start gap-3">
                   <ShieldCheck
                     aria-hidden="true"
-                    className="mt-0.5 h-5 w-5 shrink-0 text-brand-500"
+                    className="mt-0.5 h-5 w-5 shrink-0 text-brand-600"
                   />
                   <span>
                     Si tu caso requiere seguridad privada, te lo decimos con

@@ -72,10 +72,10 @@ export function WhatsappButton({
 
   const styles =
     variant === "solid"
-      ? "bg-[#128C7E] text-white hover:bg-[#0e6f64]"
+      ? "bg-[#0F7A6D] text-white hover:bg-[#0B6158]"
       : variant === "outline"
-        ? "border-2 border-[#128C7E] text-[#0b5a52] hover:bg-[#128C7E]/10"
-        : "bg-[#128C7E] text-white hover:bg-[#0e6f64]";
+        ? "border-2 border-[#0F7A6D] text-[#08514a] hover:bg-[#0F7A6D]/10"
+        : "bg-[#0F7A6D] text-white hover:bg-[#0B6158]";
 
   return (
     <a

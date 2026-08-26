@@ -8,7 +8,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
 import { MobileCtaBar } from "@/components/MobileCtaBar";
-import { site } from "@/config/site";
+import { googleSiteVerification, site } from "@/config/site";
 import {
   localBusinessJsonLd,
   organizationJsonLd,
@@ -45,6 +45,9 @@ export const metadata: Metadata = {
     images: [ogImage],
   },
   twitter: { card: "summary_large_image", images: [ogImage.url] },
+  ...(googleSiteVerification
+    ? { verification: { google: googleSiteVerification } }
+    : {}),
   robots: {
     index: true,
     follow: true,

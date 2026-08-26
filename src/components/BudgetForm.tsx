@@ -62,7 +62,7 @@ export function BudgetForm({
       <div className="rounded-2xl border border-brand-200 bg-brand-50 p-7 lg:p-9">
         <CheckCircle2
           aria-hidden="true"
-          className="h-10 w-10 text-[#128C7E]"
+          className="h-10 w-10 text-[#0F7A6D]"
         />
         <h2 className="mt-4 text-2xl font-bold text-brand-900">
           Solicitud enviada
