@@ -17,14 +17,42 @@ export function isPending(value: string | undefined | null): boolean {
   return !value || value.trim() === "" || value.startsWith(PENDING_PREFIX);
 }
 
+/**
+ * Lee una variable de entorno tolerando que exista pero esté vacía.
+ * `??` solo cubre undefined: una variable creada en Vercel sin valor devuelve
+ * "" y rompería el build. Siempre con acceso literal a `process.env.X`, que es
+ * la única forma en que Next.js sustituye las NEXT_PUBLIC_* en el bundle.
+ */
+function envOr(value: string | undefined, fallback: string): string {
+  const clean = value?.trim();
+  return clean ? clean : fallback;
+}
+
+const DEFAULT_SITE_URL = "https://galicontrolbrigantia.es";
+
+/**
+ * Normaliza el dominio: admite que se escriba sin protocolo o con barra final,
+ * y si el valor no es una URL válida vuelve al dominio por defecto en lugar de
+ * tumbar el build.
+ */
+function normalizeSiteUrl(value: string | undefined): string {
+  const raw = value?.trim();
+  if (!raw) return DEFAULT_SITE_URL;
+  const withProtocol = /^https?:\/\//i.test(raw) ? raw : `https://${raw}`;
+  try {
+    const url = new URL(withProtocol);
+    return `${url.protocol}//${url.host}`;
+  } catch {
+    return DEFAULT_SITE_URL;
+  }
+}
+
 /** Teléfono en formato internacional sin espacios: +34XXXXXXXXX */
-const phoneE164 = process.env.NEXT_PUBLIC_PHONE ?? "+34626588172";
+const phoneE164 = envOr(process.env.NEXT_PUBLIC_PHONE, "+34626588172");
 /** WhatsApp en formato wa.me: solo dígitos con prefijo país, p.ej. 34600000000 */
-const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP ?? "34626588172";
-const email = process.env.NEXT_PUBLIC_EMAIL ?? "PENDIENTE_EMAIL";
-const siteUrl = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://galicontrolbrigantia.es"
-).replace(/\/$/, "");
+const whatsappNumber = envOr(process.env.NEXT_PUBLIC_WHATSAPP, "34626588172");
+const email = envOr(process.env.NEXT_PUBLIC_EMAIL, "PENDIENTE_EMAIL");
+const siteUrl = normalizeSiteUrl(process.env.NEXT_PUBLIC_SITE_URL);
 
 /** Formatea +34981123456 -> +34 981 12 34 56 (para mostrar en pantalla). */
 function formatPhone(e164: string): string {
@@ -43,7 +71,7 @@ export const site = {
   /** Razón social (facturación y avisos legales). */
   legalName: "GALICONTROL BRIGANTIA SL",
   /** CIF: pendiente de facilitar. Se muestra en el aviso legal cuando exista. */
-  taxId: process.env.NEXT_PUBLIC_TAX_ID ?? "PENDIENTE_CIF",
+  taxId: envOr(process.env.NEXT_PUBLIC_TAX_ID, "PENDIENTE_CIF"),
 
   tagline:
     "Control de accesos y personal auxiliar para eventos, locales y empresas en A Coruña y Galicia.",
@@ -82,9 +110,12 @@ export const site = {
 
   /** Redes sociales. Deja el valor en PENDIENTE_* si todavía no existe el perfil. */
   social: {
-    instagram: process.env.NEXT_PUBLIC_INSTAGRAM ?? "PENDIENTE_INSTAGRAM",
-    facebook: process.env.NEXT_PUBLIC_FACEBOOK ?? "PENDIENTE_FACEBOOK",
-    linkedin: process.env.NEXT_PUBLIC_LINKEDIN ?? "PENDIENTE_LINKEDIN",
+    instagram: envOr(
+      process.env.NEXT_PUBLIC_INSTAGRAM,
+      "PENDIENTE_INSTAGRAM",
+    ),
+    facebook: envOr(process.env.NEXT_PUBLIC_FACEBOOK, "PENDIENTE_FACEBOOK"),
+    linkedin: envOr(process.env.NEXT_PUBLIC_LINKEDIN, "PENDIENTE_LINKEDIN"),
   },
 } as const;
 
@@ -98,8 +129,9 @@ export const socialProfiles: string[] = Object.values(site.social).filter(
  * `google-site-verification`, no la etiqueta entera). Se define en Vercel como
  * NEXT_PUBLIC_GSC_VERIFICATION. Si está vacío no se imprime nada.
  */
-export const googleSiteVerification =
-  process.env.NEXT_PUBLIC_GSC_VERIFICATION ?? "";
+export const googleSiteVerification = (
+  process.env.NEXT_PUBLIC_GSC_VERIFICATION ?? ""
+).trim();
 
 export const hasPhone = !isPending(site.contact.phone);
 export const hasWhatsapp = !isPending(site.contact.whatsapp);

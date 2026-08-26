@@ -195,12 +195,16 @@ para que el script se cargue. En local siempre da un 404, es normal.
 1. Sube el repositorio a GitHub.
 2. En Vercel: *Add New… → Project* → importa el repositorio.
 3. Framework: Next.js (se detecta solo). No hace falta tocar los comandos.
-4. *Settings → Environment Variables*: añade las variables del apartado 4 y las
-   de contacto (`NEXT_PUBLIC_PHONE`, `NEXT_PUBLIC_WHATSAPP`,
-   `NEXT_PUBLIC_EMAIL`, `NEXT_PUBLIC_SITE_URL`) en *Production* y *Preview*.
+4. *Settings → Environment Variables*: añade las variables del apartado 4.
+   **No crees variables con el valor vacío**: o les pones valor o no las crees.
+   Una variable vacía no equivale a «no definida». El código ya lo tolera —
+   ignora los valores vacíos y usa los valores por defecto — pero deja la web
+   apuntando al dominio provisional sin que se note.
 5. *Settings → Domains*: añade el dominio definitivo.
 6. *Analytics*: activa Web Analytics.
-7. Redeploy después de cambiar variables de entorno.
+7. Redeploy después de cambiar variables de entorno: Next.js incrusta las
+   `NEXT_PUBLIC_*` durante el build, así que cambiarlas no tiene efecto hasta
+   que se vuelve a desplegar.
 
 Cada push a la rama principal despliega automáticamente.
 
