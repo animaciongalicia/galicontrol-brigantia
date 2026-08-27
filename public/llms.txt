@@ -84,12 +84,12 @@ publican tarifas: cada servicio se presupuesta de forma individual.
 
 ## Páginas principales
 
-- [Inicio](https://galicontrolbrigantia.es/): control de accesos y personal para eventos en A Coruña y Galicia.
-- [Control de accesos](https://galicontrolbrigantia.es/control-de-accesos/): personal de control de accesos.
-- [Personal para eventos](https://galicontrolbrigantia.es/personal-eventos/): conciertos, festivales, fiestas, bodas y eventos deportivos.
-- [Control de accesos para locales](https://galicontrolbrigantia.es/control-accesos-locales/): pubs, salas y discotecas, puntual o recurrente.
-- [Staff para empresas](https://galicontrolbrigantia.es/personal-auxiliar-empresas/): acreditaciones, recepción y personal auxiliar para congresos.
-- [Preguntas frecuentes](https://galicontrolbrigantia.es/preguntas-frecuentes/): dudas habituales sobre el servicio y la normativa.
-- [Controlador de accesos vs vigilante de seguridad](https://galicontrolbrigantia.es/control-accesos-vs-vigilante-seguridad/): diferencias entre ambas figuras.
-- [Pedir presupuesto](https://galicontrolbrigantia.es/presupuesto/): formulario de solicitud.
-- [Blog](https://galicontrolbrigantia.es/blog/): artículos sobre qué personal necesita cada evento, precios y diferencias con la seguridad privada.
+- [Inicio](https://www.galicontrolbrigantia.com/): control de accesos y personal para eventos en A Coruña y Galicia.
+- [Control de accesos](https://www.galicontrolbrigantia.com/control-de-accesos/): personal de control de accesos.
+- [Personal para eventos](https://www.galicontrolbrigantia.com/personal-eventos/): conciertos, festivales, fiestas, bodas y eventos deportivos.
+- [Control de accesos para locales](https://www.galicontrolbrigantia.com/control-accesos-locales/): pubs, salas y discotecas, puntual o recurrente.
+- [Staff para empresas](https://www.galicontrolbrigantia.com/personal-auxiliar-empresas/): acreditaciones, recepción y personal auxiliar para congresos.
+- [Preguntas frecuentes](https://www.galicontrolbrigantia.com/preguntas-frecuentes/): dudas habituales sobre el servicio y la normativa.
+- [Controlador de accesos vs vigilante de seguridad](https://www.galicontrolbrigantia.com/control-accesos-vs-vigilante-seguridad/): diferencias entre ambas figuras.
+- [Pedir presupuesto](https://www.galicontrolbrigantia.com/presupuesto/): formulario de solicitud.
+- [Blog](https://www.galicontrolbrigantia.com/blog/): artículos sobre qué personal necesita cada evento, precios y diferencias con la seguridad privada.

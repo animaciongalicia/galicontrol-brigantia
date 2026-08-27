@@ -101,7 +101,10 @@ export default function HomePage() {
           <div className="lg:col-span-5">
             <Photo
               ratio="4/3"
-              label="Foto de equipo GaliControl en un acceso"
+              src="/fotos/home.jpg"
+              alt="Equipo de GaliControl Brigantia en el acceso de un evento"
+              label="Foto principal de la portada"
+              priority
               sizes="(min-width: 1024px) 40vw, 100vw"
             />
           </div>

@@ -70,6 +70,8 @@ export default function LocalesPage() {
         title="Control de accesos para locales, pubs y salas en A Coruña"
         cta="hero_locales"
         photoLabel="Foto de acceso a un local de ocio"
+        photoSrc="/fotos/locales.jpg"
+        photoAlt="Controlador de accesos en la puerta de un local de ocio"
         intro={
           <>
             <p>

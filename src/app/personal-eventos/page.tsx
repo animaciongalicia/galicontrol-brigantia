@@ -76,6 +76,8 @@ export default function PersonalEventosPage() {
         title="Personal para eventos en A Coruña y Galicia"
         cta="hero_eventos"
         photoLabel="Foto de personal en un evento"
+        photoSrc="/fotos/eventos.jpg"
+        photoAlt="Equipo de GaliControl trabajando en la entrada de un evento"
         intro={
           <p>
             Tú organizas el evento. Nosotros te ayudamos a cubrir y coordinar el

@@ -70,6 +70,8 @@ export default function EmpresasPage() {
         title="Staff y personal auxiliar para eventos corporativos"
         cta="hero_empresas"
         photoLabel="Foto de staff en un congreso"
+        photoSrc="/fotos/empresas.jpg"
+        photoAlt="Staff de GaliControl en el mostrador de recepción de un congreso"
         intro={
           <>
             <p>

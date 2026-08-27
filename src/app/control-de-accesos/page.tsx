@@ -44,6 +44,8 @@ export default function ControlDeAccesosPage() {
         title="Personal de control de accesos en A Coruña y Galicia"
         cta="hero_control_accesos"
         photoLabel="Foto de un punto de acceso con personal"
+        photoSrc="/fotos/control-accesos.jpg"
+        photoAlt="Personal de GaliControl en el punto de acceso de un recinto"
         intro={
           <>
             <p>

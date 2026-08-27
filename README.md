@@ -39,7 +39,6 @@ Siguen pendientes:
 | Email de contacto | `NEXT_PUBLIC_EMAIL` | `PENDIENTE_EMAIL` |
 | Buzón que recibe los formularios | `LEADS_EMAIL` | sin definir |
 | Claves de Resend | `RESEND_API_KEY`, `FROM_EMAIL` | sin definir |
-| Dominio definitivo | `NEXT_PUBLIC_SITE_URL` | `galicontrolbrigantia.es` (provisional) |
 | CIF | `NEXT_PUBLIC_TAX_ID` | `PENDIENTE_CIF` |
 | Redes sociales | `NEXT_PUBLIC_INSTAGRAM`, etc. | sin definir |
 | Verificación de Search Console | `NEXT_PUBLIC_GSC_VERIFICATION` | sin definir |
@@ -139,15 +138,22 @@ formulario y en el CTA del menú móvil. Para eliminarlo, iguala esos tokens a
 los de `brand`.
 
 ### Fotografías
-El componente `<Photo />` (`src/components/Photo.tsx`) muestra un marcador con
-la proporción correcta mientras no hay foto. Cuando tengas las imágenes,
-guárdalas en `public/` y pásale `src` y `alt`:
+**No hay que tocar código.** Cada hueco tiene un archivo asignado; el
+componente comprueba en el build si existe dentro de `public/` y, si está,
+sustituye el marcador por la foto optimizada.
 
-```tsx
-<Photo src="/fotos/acceso-sala.jpg" alt="Personal de GaliControl en el acceso de una sala" ratio="4/3" />
-```
+| Archivo | Dónde sale |
+| --- | --- |
+| `public/fotos/home.jpg` | Portada |
+| `public/fotos/control-accesos.jpg` | Control de accesos |
+| `public/fotos/eventos.jpg` | Eventos |
+| `public/fotos/locales.jpg` | Locales |
+| `public/fotos/empresas.jpg` | Empresas |
 
-El diseño no se rompe: el hueco ya está reservado.
+Súbelas desde GitHub (`public/fotos` → *Add file → Upload files*) con esos
+nombres exactos. Horizontales, sobre 1600 px de ancho. Mientras no existan, el
+marcador indica en pantalla qué archivo falta. Más detalle en
+`public/fotos/LEEME.md`.
 
 ### Imagen para compartir (WhatsApp, redes)
 `public/og.png` (1200×630). Sustitúyela por otra del mismo tamaño si quieres.
@@ -186,7 +192,7 @@ honeypot antispam y límite de 3 envíos cada 10 minutos por IP.
 ```
 RESEND_API_KEY=re_xxxxxxxxxxxx      # clave de Resend (nunca en GitHub)
 LEADS_EMAIL=dani@…                  # buzón que recibe las solicitudes
-FROM_EMAIL=web@tudominio.es         # remitente verificado en Resend
+FROM_EMAIL=web@galicontrolbrigantia.com         # remitente verificado en Resend
 NEXT_PUBLIC_SITE_URL=https://…      # dominio final
 ```
 

@@ -18,6 +18,8 @@ export function PageHero({
   intro,
   cta,
   photoLabel,
+  photoSrc,
+  photoAlt,
   showCta = true,
   aside,
 }: {
@@ -26,6 +28,9 @@ export function PageHero({
   intro: React.ReactNode;
   cta: string;
   photoLabel?: string;
+  /** Archivo esperado dentro de /public, p. ej. "/fotos/eventos.jpg". */
+  photoSrc?: string;
+  photoAlt?: string;
   showCta?: boolean;
   /** Contenido de la columna derecha en las páginas sin fotografía. */
   aside?: React.ReactNode;
@@ -63,7 +68,10 @@ export function PageHero({
           <div className="lg:col-span-5">
             <Photo
               ratio="4/3"
+              src={photoSrc}
+              alt={photoAlt}
               label={photoLabel}
+              priority
               sizes="(min-width: 1024px) 40vw, 100vw"
             />
           </div>

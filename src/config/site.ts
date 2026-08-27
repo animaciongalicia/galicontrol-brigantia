@@ -28,7 +28,8 @@ function envOr(value: string | undefined, fallback: string): string {
   return clean ? clean : fallback;
 }
 
-const DEFAULT_SITE_URL = "https://galicontrolbrigantia.es";
+// Dominio definitivo. El apex galicontrolbrigantia.com redirige aquí.
+const DEFAULT_SITE_URL = "https://www.galicontrolbrigantia.com";
 
 /**
  * Normaliza el dominio: admite que se escriba sin protocolo o con barra final,
