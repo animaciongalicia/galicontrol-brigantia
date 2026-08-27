@@ -6,6 +6,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BudgetForm } from "@/components/BudgetForm";
 import { PhoneButton, WhatsappButton } from "@/components/ContactButtons";
 import { JsonLd } from "@/components/JsonLd";
+import { PageHero } from "@/components/PageHero";
 import { Card } from "@/components/ui";
 import { site } from "@/config/site";
 import { breadcrumbJsonLd } from "@/lib/jsonld";
@@ -71,21 +72,23 @@ export default async function PresupuestoPage({
     <>
       <Breadcrumbs items={crumbs} />
 
+      <PageHero
+        eyebrow="Presupuesto"
+        title="Cuéntanos qué necesitas"
+        cta="hero_presupuesto"
+        showCta={false}
+        intro={
+          <p>
+            Con el nombre, un teléfono y la fecha ya podemos empezar. Si
+            quieres, añade dos líneas explicando el servicio y lo tenemos todo.
+          </p>
+        }
+      />
+
       <section className="container-page py-10 lg:py-14">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
           <div className="lg:col-span-7">
-            <h1 className="text-[1.85rem] font-bold leading-[1.15] text-brand-900 sm:text-4xl">
-              Cuéntanos qué necesitas
-            </h1>
-            <p className="mt-5 max-w-2xl text-[1.05rem] leading-relaxed text-ink-700">
-              Con el nombre, un teléfono y la fecha ya podemos empezar. Si
-              quieres, añade dos líneas explicando el servicio y lo tenemos
-              todo.
-            </p>
-
-            <div className="mt-8">
-              <BudgetForm origen={origen} cta={cta} />
-            </div>
+            <BudgetForm origen={origen} cta={cta} />
           </div>
 
           <aside className="lg:col-span-5">

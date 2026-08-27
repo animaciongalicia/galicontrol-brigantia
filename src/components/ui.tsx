@@ -147,7 +147,10 @@ export function CheckList({
   );
 }
 
-/** Lista de etiquetas (tipos de servicio, zonas...). */
+/**
+ * Etiquetas informativas, SIN enlace. Deliberadamente planas y sin borde para
+ * que no se confundan con <LinkPills />, que sí son pulsables.
+ */
 export function PillList({
   items,
   tone = "soft",
@@ -173,7 +176,10 @@ export function PillList({
   );
 }
 
-/** Enlaces internos en forma de etiqueta (tipos de servicio de la home). */
+/**
+ * Enlaces internos en forma de píldora. Llevan flecha para distinguirlos a
+ * simple vista de <PillList />, que son etiquetas sin destino.
+ */
 export function LinkPills({
   items,
 }: {
@@ -185,9 +191,13 @@ export function LinkPills({
         <li key={item.label}>
           <Link
             href={item.href}
-            className="inline-flex min-h-11 items-center rounded-full border border-brand-200 bg-white px-4 text-sm font-medium text-brand-800 transition-colors hover:border-brand-400 hover:bg-brand-50"
+            className="group inline-flex min-h-11 items-center gap-1.5 rounded-full border border-brand-200 bg-white pl-4 pr-3 text-sm font-medium text-brand-800 transition-colors hover:border-brand-400 hover:bg-brand-50"
           >
             {item.label}
+            <ArrowRight
+              aria-hidden="true"
+              className="h-3.5 w-3.5 text-brand-400 transition-colors group-hover:text-brand-600"
+            />
           </Link>
         </li>
       ))}
@@ -195,27 +205,32 @@ export function LinkPills({
   );
 }
 
+/**
+ * Proceso de cinco pasos. Son cinco por definición, así que no caben en una
+ * rejilla de 2 o 3 columnas sin dejar una fila coja: hasta `lg` se muestran
+ * como lista vertical compacta y en escritorio como fila de cinco.
+ */
 export function Steps({
   steps,
 }: {
   steps: { title: string; text: string }[];
 }) {
   return (
-    <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+    <ol className="grid gap-3 lg:grid-cols-5 lg:gap-4">
       {steps.map((step, index) => (
         <li
           key={step.title}
-          className="relative rounded-2xl border border-brand-100 bg-white p-5"
+          className="flex gap-4 rounded-2xl border border-brand-100 bg-white p-5 lg:flex-col lg:gap-0"
         >
-          <span className="inline-grid h-9 w-9 place-items-center rounded-lg bg-brand-800 text-sm font-bold text-white">
+          <span className="inline-grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-brand-800 text-sm font-bold text-white">
             {index + 1}
           </span>
-          <h3 className="mt-3.5 text-base font-bold text-brand-900">
-            {step.title}
-          </h3>
-          <p className="mt-1.5 text-sm leading-relaxed text-ink-700">
-            {step.text}
-          </p>
+          <div className="lg:mt-3.5">
+            <h3 className="text-base font-bold text-brand-900">{step.title}</h3>
+            <p className="mt-1.5 text-sm leading-relaxed text-ink-700">
+              {step.text}
+            </p>
+          </div>
         </li>
       ))}
     </ol>
@@ -274,5 +289,55 @@ export function LegalNote({
       </div>
       {action ? <div className="mt-5">{action}</div> : null}
     </div>
+  );
+}
+
+/**
+ * Bloque de texto corrido. Para las secciones explicativas largas, donde el
+ * contenido pesa más que la maquetación.
+ */
+export function Prose({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <div
+      className={`max-w-3xl space-y-4 text-[1.02rem] leading-relaxed text-ink-700 ${className}`}
+    >
+      {children}
+    </div>
+  );
+}
+
+/** Lista numerada de fases de un servicio, con texto explicativo. */
+export function PhaseList({
+  phases,
+}: {
+  phases: { title: string; text: string }[];
+}) {
+  return (
+    <ol className="mt-8 space-y-4">
+      {phases.map((phase, index) => (
+        <li
+          key={phase.title}
+          className="flex gap-4 rounded-2xl border border-brand-100 bg-white p-5 lg:p-6"
+        >
+          <span className="inline-grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-brand-700 text-sm font-bold text-white">
+            {index + 1}
+          </span>
+          <div>
+            <h3 className="text-base font-bold text-brand-900 lg:text-lg">
+              {phase.title}
+            </h3>
+            <p className="mt-2 max-w-3xl leading-relaxed text-ink-700">
+              {phase.text}
+            </p>
+          </div>
+        </li>
+      ))}
+    </ol>
   );
 }

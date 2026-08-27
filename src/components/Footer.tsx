@@ -101,15 +101,22 @@ export function Footer() {
                     </span>
                   </WhatsappFooterLink>
                 </li>
-                <li>
-                  <a
-                    href={site.contact.emailHref}
-                    className="inline-flex items-start gap-2.5 py-1 break-all text-white/90 transition-colors hover:text-accent-400"
-                  >
-                    <Mail aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0" />
-                    <span>{hasEmail ? site.contact.email : "Email"}</span>
-                  </a>
-                </li>
+                {/* Sin email configurado no mostramos un mailto: vacío, que
+                    abriría el gestor de correo sin destinatario. */}
+                {hasEmail ? (
+                  <li>
+                    <a
+                      href={site.contact.emailHref}
+                      className="inline-flex items-start gap-2.5 py-1 break-all text-white/90 transition-colors hover:text-accent-400"
+                    >
+                      <Mail
+                        aria-hidden="true"
+                        className="mt-0.5 h-4 w-4 shrink-0"
+                      />
+                      <span>{site.contact.email}</span>
+                    </a>
+                  </li>
+                ) : null}
                 <li className="flex items-start gap-2.5 py-1 text-white/90">
                   <MapPin aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0" />
                   <span>

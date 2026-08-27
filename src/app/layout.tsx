@@ -83,7 +83,7 @@ export default function RootLayout({
         <Footer />
 
         {/* Espacio para que la barra fija inferior no tape el final del contenido */}
-        <div aria-hidden="true" className="h-16 lg:hidden" />
+        <div aria-hidden="true" className="h-16 xl:hidden" />
         <MobileCtaBar />
 
         <JsonLd

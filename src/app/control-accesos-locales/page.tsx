@@ -5,10 +5,13 @@ import { BudgetButton } from "@/components/ContactButtons";
 import { CtaSection } from "@/components/CtaSection";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
+import { RelatedServices } from "@/components/RelatedServices";
 import {
   Card,
   CheckList,
+  PhaseList,
   PillList,
+  Prose,
   Section,
   SectionHeading,
 } from "@/components/ui";
@@ -152,39 +155,150 @@ export default function LocalesPage() {
         </div>
       </Section>
 
+      <Section>
+        <SectionHeading
+          eyebrow="El arranque"
+          title="Cómo empiezan las primeras semanas en un local nuevo"
+          intro="Un servicio recurrente no funciona bien desde el primer día por casualidad. Las primeras semanas son de rodaje, y conviene plantearlas como tal."
+        />
+        <PhaseList
+          phases={[
+            {
+              title: "Reconocer el local antes de empezar",
+              text: "Antes de la primera noche vemos el local: dónde está la puerta, cómo se forma la fila en la calle, dónde termina la acera, qué aforo tiene autorizado, dónde están las salidas y qué zonas quedan fuera del paso del público. También quién es el responsable de sala cada noche y cómo se le avisa.",
+            },
+            {
+              title: "Fijar los criterios del local",
+              text: "Cada local tiene sus condiciones de admisión y su forma de trabajar. Qué hacer con grupos grandes, cómo se gestionan las reservas o la lista de invitados si las hay, a partir de qué hora deja de entrar gente, cómo se controla la reentrada. Eso lo decide el titular del local y nosotros lo aplicamos con el mismo criterio todas las noches.",
+            },
+            {
+              title: "Las primeras noches",
+              text: "En las primeras semanas es normal ajustar cosas: adelantar o retrasar la hora de entrada del personal, añadir a alguien los sábados, cambiar dónde se coloca la fila. Lo importante es que esos ajustes se hagan hablando y queden fijados, no que cada noche se improvise otra vez.",
+            },
+            {
+              title: "El equipo se estabiliza",
+              text: "A partir de ahí el objetivo es que sean siempre las mismas personas las que cubren el local. Un equipo habitual conoce el público, reconoce a los clientes de siempre, sabe qué noches se complican y aplica los criterios sin tener que preguntar. Esa es la diferencia real entre contratar horas y tener un servicio.",
+            },
+          ]}
+        />
+      </Section>
+
+      <Section tone="soft">
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
+          <div className="lg:col-span-6">
+            <SectionHeading
+              title="Un jueves no es un sábado"
+              intro="La planificación mensual no consiste en poner el mismo número de personas todas las noches."
+            />
+            <Prose className="mt-6">
+              <p>
+                El volumen de público, la hora punta y el tipo de noche cambian
+                mucho de un día a otro de la misma semana. Un jueves puede
+                cubrirse con una persona y un sábado con dos, y una noche con
+                actuación en directo o con fiesta temática puede necesitar
+                refuerzo solo en el tramo de entrada.
+              </p>
+              <p>
+                Por eso la planificación se hace por noches concretas y no como
+                un paquete cerrado de horas. Sabes de antemano quién va cada
+                día y en qué horario, y los refuerzos puntuales se piden con
+                normalidad sin renegociar el servicio entero.
+              </p>
+            </Prose>
+          </div>
+          <div className="lg:col-span-6">
+            <Card>
+              <h3 className="text-base font-bold text-brand-900">
+                Qué queda definido en la planificación
+              </h3>
+              <div className="mt-5">
+                <CheckList
+                  items={[
+                    "Qué días de la semana se cubre el local y con cuántas personas.",
+                    "Hora de entrada y hora de salida del personal cada día.",
+                    "Las condiciones de admisión y de aforo que aplica el local.",
+                    "Quién es el responsable de sala y cómo se le avisa ante una incidencia.",
+                    "Cómo se piden los refuerzos para fechas especiales y con cuánta antelación.",
+                    "Cómo se comunican y se facturan las horas adicionales si una noche se alarga.",
+                  ]}
+                />
+              </div>
+            </Card>
+          </div>
+        </div>
+      </Section>
+
+      <Section>
+        <SectionHeading
+          title="Cuando cambia alguien del equipo"
+          intro="Es la parte que más se nota cuando se trabaja con personas sueltas y no con una empresa."
+        />
+        <Prose className="mt-6">
+          <p>
+            En un servicio recurrente antes o después hay una baja, una
+            incidencia o alguien que deja el puesto. Si el local ha contratado
+            directamente a esa persona, el problema es del local: hay que
+            buscar sustituto, explicarle el sitio desde cero y confiar en que
+            aparezca.
+          </p>
+          <p>
+            Trabajando con nosotros, la sustitución la organizamos nosotros
+            siempre que la disponibilidad operativa lo permita, y quien entra
+            recibe las instrucciones del local antes de su primera noche: los
+            criterios de admisión, el aforo, la forma de trabajar y con quién
+            hablar. El responsable del local se entera del cambio, pero no
+            tiene que gestionarlo.
+          </p>
+          <p>
+            No prometemos que nunca vaya a faltar nadie, porque eso no lo puede
+            garantizar nadie de forma absoluta. Lo que cambia es de quién es el
+            problema y quién dedica el tiempo a resolverlo.
+          </p>
+        </Prose>
+      </Section>
+
       <Section tone="soft">
         <SectionHeading
           eyebrow="Dos modalidades"
           title="Puntual o recurrente"
         />
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
-          <Card>
+          <Card className="flex flex-col border-brand-200 bg-brand-50">
             <h3 className="text-xl font-bold text-brand-900">
               Cobertura puntual
             </h3>
-            <p className="mt-3 leading-relaxed text-ink-700">
+            <p className="mt-3 flex-1 leading-relaxed text-ink-700">
               Una baja, una fiesta, un refuerzo o una necesidad extraordinaria
               en una fecha concreta.
             </p>
+            <div className="mt-6">
+              <BudgetButton
+                cta="locales_cobertura_puntual"
+                size="lg"
+                variant="solid"
+                label="Necesito una cobertura puntual"
+                className="w-full sm:w-auto"
+              />
+            </div>
           </Card>
-          <Card>
+          <Card className="flex flex-col border-brand-200 bg-brand-50">
             <h3 className="text-xl font-bold text-brand-900">
               Servicio recurrente
             </h3>
-            <p className="mt-3 leading-relaxed text-ink-700">
+            <p className="mt-3 flex-1 leading-relaxed text-ink-700">
               Personal varios días o noches al mes bajo una planificación
               continuada, con el mismo equipo siempre que sea posible.
             </p>
+            <div className="mt-6">
+              <BudgetButton
+                cta="locales_servicio_recurrente"
+                size="lg"
+                variant="solid"
+                label="Quiero un servicio recurrente"
+                className="w-full sm:w-auto"
+              />
+            </div>
           </Card>
-        </div>
-        <div className="mt-8">
-          <BudgetButton
-            cta="locales_puntual_recurrente"
-            size="lg"
-            variant="solid"
-            label="Quiero una propuesta para mi local"
-            className="w-full sm:w-auto"
-          />
         </div>
       </Section>
 
@@ -205,6 +319,8 @@ export default function LocalesPage() {
           }
         />
       </Section>
+
+      <RelatedServices exclude={PATH} />
 
       <CtaSection
         cta="cierre_locales"

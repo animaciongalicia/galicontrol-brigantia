@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaSection } from "@/components/CtaSection";
 import { JsonLd } from "@/components/JsonLd";
+import { PageHero } from "@/components/PageHero";
+import { RelatedServices } from "@/components/RelatedServices";
 import { Card, Section, SectionHeading, TextLink } from "@/components/ui";
 import { breadcrumbJsonLd } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/seo";
@@ -63,22 +65,26 @@ export default function ComparativaPage() {
     <>
       <Breadcrumbs items={crumbs} />
 
+      <PageHero
+        eyebrow="Información"
+        title="Diferencias entre controlador de accesos y vigilante de seguridad"
+        cta="hero_comparativa"
+        intro={
+          <p>
+            Son dos figuras distintas, con normativa y funciones diferentes.
+            Esta página explica en qué se diferencian para ayudarte a decidir
+            qué necesita tu local o tu evento.
+          </p>
+        }
+      />
+
       <Section>
-        <p className="mb-3 text-xs font-bold uppercase tracking-[0.16em] text-brand-600">
-          Información
-        </p>
-        <h1 className="max-w-3xl text-[1.85rem] font-bold leading-[1.15] text-brand-900 sm:text-4xl">
-          Diferencias entre controlador de accesos y vigilante de seguridad
-        </h1>
-        <p className="mt-5 max-w-3xl text-[1.05rem] leading-relaxed text-ink-700">
-          Son dos figuras distintas, con normativa y funciones diferentes. Esta
-          página explica en qué se diferencian para ayudarte a decidir qué
-          necesita tu local o tu evento.
-        </p>
-        <p className="mt-4 max-w-3xl rounded-xl bg-brand-50 px-5 py-4 text-[0.95rem] leading-relaxed text-ink-700">
+        <p className="max-w-3xl rounded-xl border border-brand-200 bg-brand-50 px-5 py-4 text-[0.95rem] leading-relaxed text-ink-700">
           Esta información es divulgativa y no sustituye al asesoramiento
           jurídico ni a la consulta de la normativa aplicable en cada caso.{" "}
-          <strong>GaliControl Brigantia no es una empresa de seguridad privada</strong>{" "}
+          <strong>
+            GaliControl Brigantia no es una empresa de seguridad privada
+          </strong>{" "}
           y no presta servicios reservados a ese sector.
         </p>
       </Section>
@@ -167,7 +173,7 @@ export default function ComparativaPage() {
           title="Qué no debe hacer un controlador de accesos"
           intro="El personal de control de accesos no asume funciones reservadas legalmente a la seguridad privada. En concreto, no le corresponde:"
         />
-        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-5 lg:grid-cols-3">
           {[
             "Prestar servicios de vigilancia y protección propios de la seguridad privada.",
             "Presentarse ante el público como vigilante de seguridad ni utilizar distintivos que induzcan a confusión.",
@@ -234,6 +240,8 @@ export default function ComparativaPage() {
           </TextLink>
         </div>
       </Section>
+
+      <RelatedServices exclude={PATH} limit={4} />
 
       <CtaSection
         cta="cierre_comparativa"

@@ -4,6 +4,8 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaSection } from "@/components/CtaSection";
 import { FaqList } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
+import { PageHero } from "@/components/PageHero";
+import { RelatedServices } from "@/components/RelatedServices";
 import { LegalNote, Section, TextLink } from "@/components/ui";
 import { faqs } from "@/content/faqs";
 import { breadcrumbJsonLd, faqJsonLd } from "@/lib/jsonld";
@@ -28,18 +30,19 @@ export default function FaqPage() {
     <>
       <Breadcrumbs items={crumbs} />
 
-      <Section>
-        <p className="mb-3 text-xs font-bold uppercase tracking-[0.16em] text-brand-600">
-          FAQs
-        </p>
-        <h1 className="max-w-3xl text-[1.85rem] font-bold leading-[1.15] text-brand-900 sm:text-4xl">
-          Preguntas frecuentes sobre control de accesos y personal para eventos
-        </h1>
-        <p className="mt-5 max-w-3xl text-[1.05rem] leading-relaxed text-ink-700">
-          Respuestas breves y concretas. Si tu caso no aparece aquí,
-          pregúntanoslo directamente por teléfono o WhatsApp.
-        </p>
+      <PageHero
+        eyebrow="FAQs"
+        title="Preguntas frecuentes sobre control de accesos y personal para eventos"
+        cta="hero_faqs"
+        intro={
+          <p>
+            Respuestas breves y concretas. Si tu caso no aparece aquí,
+            pregúntanoslo directamente por teléfono o WhatsApp.
+          </p>
+        }
+      />
 
+      <Section>
         <FaqList items={faqs} />
       </Section>
 
@@ -58,6 +61,12 @@ export default function FaqPage() {
           </p>
         </LegalNote>
       </Section>
+
+      <RelatedServices
+        exclude={PATH}
+        title="¿Buscas un servicio concreto?"
+        limit={4}
+      />
 
       <CtaSection
         cta="cierre_faqs"

@@ -18,6 +18,7 @@ import {
   PillList,
   Section,
   SectionHeading,
+  Prose,
   Steps,
   TextLink,
 } from "@/components/ui";
@@ -166,6 +167,7 @@ export default function HomePage() {
                 "«Necesito cubrir una baja o una urgencia.»",
                 "«Mi evento necesita varias personas coordinadas.»",
                 "«Tengo un local y necesito continuidad.»",
+                "«Quiero hablar con una sola persona, no con cinco.»",
               ]}
             />
           </div>
@@ -262,6 +264,99 @@ export default function HomePage() {
         />
         <div className="mt-8">
           <LinkPills items={serviceTypes} />
+        </div>
+      </Section>
+
+      {/* CUÁNDO NOS LLAMAN */}
+      <Section tone="soft">
+        <SectionHeading
+          eyebrow="Situaciones habituales"
+          title="Cuándo nos suele llamar la gente"
+          intro="No hace falta que encaje exactamente con ninguna de estas. Sirven para hacerte una idea del tipo de encargo que resolvemos."
+        />
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            {
+              title: "Tengo fecha y no tengo personal",
+              text: "Un concierto, una fiesta o una celebración con día cerrado y sin nadie confirmado para la puerta. Cuéntanos fecha, sitio y horario y te decimos qué podemos cubrir.",
+            },
+            {
+              title: "Me han fallado a última hora",
+              text: "Alguien no puede acudir esta noche o este fin de semana. Es un encargo habitual: dinos qué franja hay que cubrir y lo miramos al momento.",
+            },
+            {
+              title: "Estoy cansado de organizarlo cada semana",
+              text: "Un local que necesita personal varios días al mes y quiere dejar de buscar gente cada viernes. Se plantea como servicio recurrente con planificación por noches.",
+            },
+            {
+              title: "Necesito varias personas coordinadas",
+              text: "Un evento con más de un punto de acceso, donde no basta con poner gente: hace falta que el equipo se comunique y se reparta según cómo llegue el público.",
+            },
+            {
+              title: "Tengo un congreso y no sé cómo montar la acreditación",
+              text: "Listado de asistentes, entrega de acreditaciones y recepción. Te planteamos cuántas posiciones hacen falta según la hora a la que esté citada la gente.",
+            },
+            {
+              title: "No sé si necesito controladores o vigilantes",
+              text: "Es la duda más frecuente y conviene resolverla antes de contratar nada. Te decimos con claridad qué podemos cubrir nosotros y qué no.",
+            },
+          ].map((item) => (
+            <Card key={item.title}>
+              <h3 className="text-base font-bold text-brand-900">
+                {item.title}
+              </h3>
+              <p className="mt-2 text-[0.95rem] leading-relaxed text-ink-700">
+                {item.text}
+              </p>
+            </Card>
+          ))}
+        </div>
+      </Section>
+
+      {/* POR QUÉ UNA EMPRESA */}
+      <Section>
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
+          <div className="lg:col-span-6">
+            <SectionHeading
+              eyebrow="La diferencia"
+              title="Contratar a una empresa no es lo mismo que contratar horas sueltas"
+            />
+            <Prose className="mt-6">
+              <p>
+                Se puede llamar a un conocido que haga puertas y que venga el
+                sábado. Funciona hasta que ese sábado no puede venir, hasta que
+                hay que explicarle el local otra vez a otra persona o hasta que
+                surge una incidencia y no hay a quién llamar.
+              </p>
+              <p>
+                Trabajar con una empresa significa que hay alguien que organiza
+                el servicio, que da las instrucciones al equipo, que resuelve
+                las sustituciones y que responde de la relación laboral y de la
+                facturación. Tú hablas con una sola persona, y esa persona se
+                ocupa del resto.
+              </p>
+            </Prose>
+          </div>
+          <div className="lg:col-span-6">
+            <Card className="bg-brand-50">
+              <h3 className="text-base font-bold text-brand-900">
+                Lo que sí va incluido
+              </h3>
+              <div className="mt-5">
+                <CheckList
+                  columns={1}
+                  items={[
+                    "Un único interlocutor para todo el servicio.",
+                    "Instrucciones al equipo antes de empezar, no sobre la marcha.",
+                    "Organización de las sustituciones cuando la disponibilidad lo permite.",
+                    "Personal contratado en regla, con su relación laboral en orden.",
+                    "Presupuesto por escrito con las horas incluidas y las condiciones de ampliación.",
+                    "Factura de empresa.",
+                  ]}
+                />
+              </div>
+            </Card>
+          </div>
         </div>
       </Section>
 

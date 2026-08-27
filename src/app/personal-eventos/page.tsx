@@ -4,9 +4,11 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaSection } from "@/components/CtaSection";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
+import { RelatedServices } from "@/components/RelatedServices";
 import {
   Card,
   CheckList,
+  Prose,
   Section,
   SectionHeading,
   TextLink,
@@ -192,6 +194,127 @@ export default function PersonalEventosPage() {
       </Section>
 
       <Section tone="soft">
+        <SectionHeading
+          eyebrow="Cómo se dimensiona"
+          title="De qué depende el número de personas"
+          intro="No hay una fórmula única, pero sí cuatro factores que determinan casi siempre la cobertura de un evento."
+        />
+        <div className="mt-10 grid gap-5 sm:grid-cols-2">
+          <Card>
+            <h3 className="text-base font-bold text-brand-900">
+              Cuántos puntos de acceso hay
+            </h3>
+            <p className="mt-2 leading-relaxed text-ink-700">
+              Pesa más que el aforo. Un recinto con tres puertas necesita
+              personal en las tres desde antes de abrir, aunque el público
+              total sea moderado. Un recinto de la misma capacidad con una sola
+              entrada se cubre con menos gente, pero necesita más control del
+              ritmo de la fila.
+            </p>
+          </Card>
+          <Card>
+            <h3 className="text-base font-bold text-brand-900">
+              Cómo llega el público
+            </h3>
+            <p className="mt-2 leading-relaxed text-ink-700">
+              Un concierto con hora de inicio concentra casi toda la entrada en
+              cuarenta o cincuenta minutos. Una fiesta que dura toda la noche
+              reparte la llegada a lo largo de varias horas. El primer caso
+              necesita refuerzo en la apertura; el segundo, continuidad.
+            </p>
+          </Card>
+          <Card>
+            <h3 className="text-base font-bold text-brand-900">
+              Qué hay que comprobar en la entrada
+            </h3>
+            <p className="mt-2 leading-relaxed text-ink-700">
+              No es lo mismo dejar pasar a quien enseña una entrada que
+              contrastar un listado nominativo o entregar una acreditación.
+              Cuanto más hay que comprobar, más baja el ritmo por persona y más
+              cuenta el número de posiciones.
+            </p>
+          </Card>
+          <Card>
+            <h3 className="text-base font-bold text-brand-900">
+              Cuántas horas dura el servicio
+            </h3>
+            <p className="mt-2 leading-relaxed text-ink-700">
+              Un servicio largo necesita prever relevos y descansos. En eventos
+              de jornada completa o de varios días, el planteamiento se hace por
+              turnos, no por número total de personas.
+            </p>
+          </Card>
+        </div>
+        <Prose className="mt-8">
+          <p>
+            Con esos datos planteamos una propuesta y la explicamos: cuántas
+            personas, en qué posiciones y en qué franjas. Si te parece que
+            sobra o falta cobertura, se ajusta antes de cerrar el presupuesto.
+          </p>
+        </Prose>
+      </Section>
+
+      <Section>
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
+          <div className="lg:col-span-7">
+            <SectionHeading
+              eyebrow="Coordinación"
+              title="Con quién se entiende el equipo durante el evento"
+            />
+            <Prose className="mt-6">
+              <p>
+                En un evento hay varios actores trabajando a la vez:
+                producción, el personal del recinto, la empresa de sonido,
+                barras, y —cuando el tipo de actividad lo requiere— seguridad
+                privada contratada aparte. El personal de control de accesos
+                tiene que saber a quién dirigirse en cada caso.
+              </p>
+              <p>
+                Antes del servicio acordamos un{" "}
+                <strong>interlocutor único por parte de la organización</strong>{" "}
+                y, si el equipo es amplio, un responsable por nuestra parte que
+                centraliza la comunicación. Así el organizador no tiene que dar
+                instrucciones persona a persona ni buscar a nadie cuando surge
+                algo.
+              </p>
+              <p>
+                Cuando en el evento hay también vigilantes de seguridad, cada
+                figura trabaja en su ámbito: nuestro personal organiza la
+                entrada del público y la seguridad privada desarrolla las
+                funciones que la normativa le reserva. Son servicios
+                complementarios, y conviene tenerlo claro antes, no en mitad de
+                una incidencia.
+              </p>
+            </Prose>
+            <div className="mt-6">
+              <TextLink href="/control-accesos-vs-vigilante-seguridad/">
+                Ver diferencias entre controlador y vigilante de seguridad
+              </TextLink>
+            </div>
+          </div>
+          <div className="lg:col-span-5">
+            <Card className="bg-brand-50">
+              <h3 className="text-base font-bold text-brand-900">
+                Cambios de última hora
+              </h3>
+              <p className="mt-3 leading-relaxed text-ink-700">
+                En eventos casi siempre se mueve algo: la apertura se retrasa,
+                aparecen invitados que no estaban en el listado, se abre una
+                puerta que no estaba prevista o el aforo se llena antes de lo
+                calculado.
+              </p>
+              <p className="mt-3 leading-relaxed text-ink-700">
+                Lo que reduce el problema es haber decidido antes quién puede
+                autorizar cada cosa. Si eso está acordado, un cambio se resuelve
+                con una llamada. Si no, se acaba decidiendo en la puerta, con
+                público delante y sin buena información.
+              </p>
+            </Card>
+          </div>
+        </div>
+      </Section>
+
+      <Section tone="soft">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-7">
             <SectionHeading
@@ -218,6 +341,8 @@ export default function PersonalEventosPage() {
           </TextLink>
         </div>
       </Section>
+
+      <RelatedServices exclude={PATH} />
 
       <CtaSection
         cta="cierre_eventos"

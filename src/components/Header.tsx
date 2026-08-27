@@ -11,7 +11,7 @@ export function Header() {
 
         <DesktopNav />
 
-        <div className="hidden items-center gap-2 lg:flex">
+        <div className="hidden items-center gap-2 xl:flex">
           <PhoneButton cta="header" size="sm" />
           <WhatsappButton cta="header" size="sm" />
         </div>

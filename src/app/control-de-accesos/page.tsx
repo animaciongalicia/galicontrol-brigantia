@@ -4,11 +4,14 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaSection } from "@/components/CtaSection";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
+import { RelatedServices } from "@/components/RelatedServices";
 import {
   Card,
   CheckList,
   LegalNote,
-  PillList,
+  LinkPills,
+  PhaseList,
+  Prose,
   Section,
   SectionHeading,
   TextLink,
@@ -64,18 +67,18 @@ export default function ControlDeAccesosPage() {
           intro="Locales de ocio, recintos y eventos de tamaños muy distintos, con necesidades distintas de organización."
         />
         <div className="mt-8">
-          <PillList
+          <LinkPills
             items={[
-              "Pubs",
-              "Discotecas",
-              "Salas",
-              "Conciertos",
-              "Festivales",
-              "Fiestas",
-              "Recintos",
-              "Eventos deportivos",
-              "Celebraciones",
-              "Eventos de empresa",
+              { label: "Pubs", href: "/control-accesos-locales/" },
+              { label: "Discotecas", href: "/control-accesos-locales/" },
+              { label: "Salas", href: "/control-accesos-locales/" },
+              { label: "Conciertos", href: "/personal-eventos/" },
+              { label: "Festivales", href: "/personal-eventos/" },
+              { label: "Fiestas", href: "/personal-eventos/" },
+              { label: "Eventos deportivos", href: "/personal-eventos/" },
+              { label: "Celebraciones", href: "/personal-eventos/" },
+              { label: "Eventos de empresa", href: "/personal-auxiliar-empresas/" },
+              { label: "Congresos", href: "/personal-auxiliar-empresas/" },
             ]}
           />
         </div>
@@ -146,6 +149,86 @@ export default function ControlDeAccesosPage() {
       </Section>
 
       <Section tone="soft">
+        <SectionHeading
+          eyebrow="Cómo se organiza"
+          title="Un servicio de accesos, paso a paso"
+          intro="El trabajo que evita problemas en la puerta se hace antes de que llegue el primer asistente. Así planteamos un servicio de control de accesos."
+        />
+        <PhaseList
+          phases={[
+            {
+              title: "Antes del servicio",
+              text: "Definimos con el organizador o con el titular del local cuántos puntos de acceso hay, en qué horario abre cada uno, qué documento da derecho a entrar —entrada, invitación, listado o acreditación— y cuáles son las condiciones de admisión y el aforo autorizado. También acordamos a quién avisa el equipo si surge una incidencia y por qué vía. Todo eso llega al personal antes de empezar, no sobre la marcha.",
+            },
+            {
+              title: "Llegada y montaje del punto de acceso",
+              text: "El equipo se presenta con antelación al horario de apertura para reconocer el espacio: dónde se forma la fila, por dónde entra el público, dónde está la salida, dónde se acredita el personal interno y qué zonas quedan restringidas. Si hay que colocar vallado, señalización o un mostrador, se hace en ese momento.",
+            },
+            {
+              title: "Apertura",
+              text: "El primer tramo es el que marca el resto de la noche. Es cuando llega más público de golpe, cuando se forma la cola y cuando aparecen las primeras dudas. Ahí lo que importa es que la fila avance a un ritmo constante y que quien llega sepa en todo momento dónde ponerse y qué tiene que enseñar.",
+            },
+            {
+              title: "Durante el servicio",
+              text: "Comprobación de entradas y acreditaciones, control del aforo, información a los asistentes, gestión de las salidas y reentradas si el evento las permite, y atención a las indicaciones de la organización. Cuando hay varios puntos de acceso, el equipo se mantiene en contacto para reequilibrar personal si en una puerta se acumula gente.",
+            },
+            {
+              title: "Cierre",
+              text: "Control de la salida del público, revisión de que las zonas de acceso quedan despejadas y traslado a la organización de cualquier incidencia relevante que se haya producido durante el servicio.",
+            },
+          ]}
+        />
+      </Section>
+
+      <Section>
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
+          <div className="lg:col-span-6">
+            <SectionHeading
+              title="Un acceso de local no se organiza como uno de recinto"
+              intro="Aunque el trabajo se llame igual, la operativa cambia bastante según dónde se preste."
+            />
+            <Prose className="mt-6">
+              <p>
+                En un <strong>local de ocio</strong> el público llega repartido
+                a lo largo de varias horas, en grupos pequeños, y muchas veces
+                es gente que ya conoce el sitio. El acceso es un único punto,
+                normalmente estrecho, y lo que más pesa es aplicar bien las
+                condiciones de admisión y el aforo, y mantener la fila en orden
+                sin generar tensión en la calle.
+              </p>
+              <p>
+                En un <strong>recinto o un evento con entrada</strong> el
+                público llega concentrado en una franja corta, casi todo el
+                mundo entra en la primera hora y suele haber varios puntos de
+                acceso simultáneos. Ahí lo determinante es el ritmo: cuántas
+                personas por minuto pueden pasar por cada puerta y cómo se
+                reparte el público entre ellas para que ninguna se colapse.
+              </p>
+            </Prose>
+          </div>
+          <div className="lg:col-span-6">
+            <Card className="bg-brand-50">
+              <h3 className="text-base font-bold text-brand-900">
+                Errores que acaban generando problemas en la puerta
+              </h3>
+              <div className="mt-5">
+                <CheckList
+                  items={[
+                    "Poner al personal justo a la hora de apertura, sin margen para reconocer el espacio.",
+                    "No dejar claro por escrito quién decide en caso de duda sobre una admisión.",
+                    "Abrir un solo punto de acceso cuando el público llega concentrado en poco tiempo.",
+                    "No prever la reentrada: si no está decidida de antemano, se decide en la puerta y con público delante.",
+                    "Ajustar tanto el número de personas que una incidencia en una puerta deja otra sin cubrir.",
+                    "No avisar al equipo de los cambios de última hora en horarios o listados.",
+                  ]}
+                />
+              </div>
+            </Card>
+          </div>
+        </div>
+      </Section>
+
+      <Section tone="soft">
         <LegalNote
           title="¿Necesitas control de accesos o seguridad privada?"
           action={
@@ -166,6 +249,8 @@ export default function ControlDeAccesosPage() {
           </p>
         </LegalNote>
       </Section>
+
+      <RelatedServices exclude={PATH} />
 
       <CtaSection
         cta="cierre_control_accesos"

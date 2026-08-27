@@ -10,7 +10,7 @@ export function DesktopNav() {
   const pathname = normalizePath(usePathname());
 
   return (
-    <nav aria-label="Navegación principal" className="hidden lg:block">
+    <nav aria-label="Navegación principal" className="hidden xl:block">
       <ul className="flex items-center gap-1">
         {mainNav.map((item) => {
           const active = pathname === item.href;

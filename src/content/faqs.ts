@@ -86,6 +86,7 @@ export const homeFaqQuestions = [
   "¿Podéis trabajar solo una noche?",
   "¿Hacéis servicios recurrentes para locales?",
   "¿Qué ocurre si una persona del equipo se pone enferma?",
+  "¿Con cuánto tiempo debería reservar?",
   "¿Qué necesitáis para preparar un presupuesto?",
 ];
 
