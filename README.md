@@ -78,6 +78,42 @@ directamente en el JSX, en español y sin capas intermedias.
 - Presupuesto: `src/app/presupuesto/page.tsx`
 - Legales: `src/app/aviso-legal/`, `src/app/privacidad/`, `src/app/cookies/`
 
+### Blog
+Los artículos son archivos `.mdx` en **`src/content/blog/`**. Un archivo por
+artículo; el nombre del archivo es la URL (`mi-articulo.mdx` →
+`/blog/mi-articulo/`).
+
+Cabecera obligatoria de cada archivo:
+
+```yaml
+---
+title: "Titular que se ve en la web"
+seoTitle: "Título para Google | GaliControl"   # opcional
+description: "Resumen de una o dos líneas."
+date: "2026-09-15"          # AAAA-MM-DD
+tag: "Eventos"              # etiqueta de la tarjeta
+updated: "2026-10-01"       # opcional
+---
+```
+
+**Publicación programada:** un artículo con `date` en el futuro no aparece en la
+web ni en el sitemap hasta que llega ese día. Puedes escribir diez de golpe,
+ponerles fechas separadas y se van publicando solos. Basta con que haya un
+despliegue posterior a esa fecha (Vercel redespliega con cada push).
+
+Dentro del texto puedes usar, además de Markdown normal:
+
+- `<PriceBox />` — la caja de precios orientativos.
+- `<PriceFactors />` — la lista de factores que afectan al precio.
+- `<CtaBox title="..." text="..." cta="..." />` — llamada a la acción intercalada.
+
+Los títulos de nivel `##` generan el índice lateral automáticamente.
+
+### Precios del blog
+En `src/config/site.ts`, dentro de `pricing`. **Ningún artículo repite las
+cifras escritas a mano**: todos leen de ahí, así que cambiando ese bloque se
+actualizan los ocho a la vez.
+
 ### Preguntas frecuentes
 En **`src/content/faqs.ts`**. Es la fuente única: alimenta la página de FAQs,
 el bloque resumido de la portada y el JSON-LD `FAQPage`. Para que una pregunta

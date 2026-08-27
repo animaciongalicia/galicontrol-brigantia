@@ -16,10 +16,13 @@ const ORIGIN_LABELS: Record<string, string> = {
   "/preguntas-frecuentes/": "Preguntas frecuentes",
   "/control-accesos-vs-vigilante-seguridad/": "Controlador vs vigilante",
   "/presupuesto/": "Presupuesto",
+  "/blog/": "Blog",
 };
 
 function originLabel(path: string): string {
-  return ORIGIN_LABELS[path] ?? "Web";
+  if (ORIGIN_LABELS[path]) return ORIGIN_LABELS[path];
+  if (path.startsWith("/blog/")) return "Blog";
+  return "Web";
 }
 
 /** Control básico de envíos repetidos por IP (memoria del proceso). */

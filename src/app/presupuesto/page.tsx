@@ -36,13 +36,17 @@ const KNOWN_PATHS = new Set([
   "/preguntas-frecuentes/",
   "/control-accesos-vs-vigilante-seguridad/",
   "/presupuesto/",
+  "/blog/",
 ]);
 
 /** Origen del contacto: query string primero, cabecera Referer como respaldo. */
 async function resolveOrigin(queryOrigin?: string): Promise<string> {
   if (queryOrigin) {
     const candidate = normalizePath(queryOrigin);
-    if (KNOWN_PATHS.has(candidate)) return candidate;
+    // Los artículos del blog también son un origen válido.
+    if (KNOWN_PATHS.has(candidate) || /^\/blog\/[a-z0-9-]+\/$/.test(candidate)) {
+      return candidate;
+    }
   }
 
   const referer = (await headers()).get("referer");
@@ -50,7 +54,12 @@ async function resolveOrigin(queryOrigin?: string): Promise<string> {
     try {
       const url = new URL(referer);
       const candidate = normalizePath(url.pathname);
-      if (KNOWN_PATHS.has(candidate)) return candidate;
+      if (
+        KNOWN_PATHS.has(candidate) ||
+        /^\/blog\/[a-z0-9-]+\/$/.test(candidate)
+      ) {
+        return candidate;
+      }
     } catch {
       // Referer no válido: seguimos con el valor por defecto.
     }

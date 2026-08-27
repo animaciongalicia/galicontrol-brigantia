@@ -108,6 +108,33 @@ export const site = {
       "Base en A Coruña. Servicios principalmente en la provincia de A Coruña y otros puntos de Galicia según las características de cada servicio.",
   },
 
+  /**
+   * PRECIOS ORIENTATIVOS
+   * -----------------------------------------------------------------------
+   * Fuente única de las cifras que aparecen en el blog. Cambiando estos
+   * valores se actualizan todos los artículos a la vez: ninguno los repite
+   * escritos a mano.
+   *
+   * Son orientativos y así se dice siempre que se muestran. El precio
+   * definitivo se confirma por escrito en cada presupuesto.
+   */
+  pricing: {
+    hourMin: 25,
+    hourMax: 40,
+    /** Ejemplo de referencia: una persona en la puerta de un local. */
+    exampleLabel: "Un controlador en la puerta de un local, un sábado",
+    exampleHours: "4-5 h",
+    exampleTotal: 150,
+    /** De qué depende que el precio suba o baje. */
+    factors: [
+      "El número de personas y de horas del servicio.",
+      "El día de la semana y la franja horaria: los fines de semana y la noche cuestan más.",
+      "La distancia y los desplazamientos hasta el lugar del servicio.",
+      "Las características del servicio y del público previsto.",
+      "Si es un servicio puntual o recurrente: la continuidad mejora las condiciones.",
+    ],
+  },
+
   /** Redes sociales. Deja el valor en PENDIENTE_* si todavía no existe el perfil. */
   social: {
     instagram: envOr(
@@ -157,6 +184,8 @@ export const whatsappMessages: Record<string, string> = {
     "Hola, vengo desde la web de GaliControl y tengo dudas sobre qué personal necesito.",
   "/presupuesto/":
     "Hola, vengo desde la web de GaliControl y quería pedir un presupuesto.",
+  "/blog/":
+    "Hola, vengo desde el blog de GaliControl y quería información.",
 };
 
 export const DEFAULT_WHATSAPP_MESSAGE = whatsappMessages["/"];
@@ -167,6 +196,7 @@ export const mainNav = [
   { href: "/personal-eventos/", label: "Eventos" },
   { href: "/control-accesos-locales/", label: "Locales" },
   { href: "/personal-auxiliar-empresas/", label: "Empresas" },
+  { href: "/blog/", label: "Blog" },
   { href: "/preguntas-frecuentes/", label: "FAQs" },
 ] as const;
 
@@ -179,6 +209,7 @@ export const footerNav = {
     { href: "/presupuesto/", label: "Pedir presupuesto" },
   ],
   informacion: [
+    { href: "/blog/", label: "Blog" },
     { href: "/preguntas-frecuentes/", label: "Preguntas frecuentes" },
     {
       href: "/control-accesos-vs-vigilante-seguridad/",
