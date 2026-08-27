@@ -8,11 +8,13 @@ import { RelatedServices } from "@/components/RelatedServices";
 import {
   Card,
   CheckList,
+  Note,
   PhaseList,
   PillList,
-  Prose,
   Section,
   SectionHeading,
+  TextLink,
+  TwoColumn,
 } from "@/components/ui";
 import { breadcrumbJsonLd, serviceJsonLd } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/seo";
@@ -33,28 +35,28 @@ const crumbs = [
 
 const services = [
   {
-    title: "Acreditaciones",
-    text: "Recepción, comprobación de listados y entrega de acreditaciones según las instrucciones del organizador.",
-  },
-  {
     title: "Recepción de asistentes",
-    text: "Bienvenida, información y orientación desde el primer momento.",
+    text: "Personal en la entrada que recibe, informa y orienta desde el primer minuto. Es la primera impresión del acto y la que marca el tono.",
   },
   {
     title: "Acomodación",
-    text: "Organización y orientación de invitados y asistentes dentro del espacio.",
+    text: "Organización de los asistentes dentro del espacio: dirigirlos a su sala, llenar las filas por orden y mantener libres los pasillos y las zonas reservadas.",
   },
   {
     title: "Staff y apoyo operativo",
-    text: "Personal auxiliar para los distintos puntos y funciones del evento, y para las necesidades concretas que surgen sobre la marcha.",
+    text: "Personal auxiliar repartido por los puntos que necesite el evento y disponible para lo que surja durante la jornada.",
   },
   {
-    title: "Accesos",
-    text: "Organización de accesos dentro de las funciones legalmente correspondientes.",
+    title: "Control de accesos",
+    text: "Organización de la entrada y del paso a las distintas zonas, dentro de las funciones que legalmente corresponden.",
   },
   {
     title: "Atención al público",
-    text: "Apoyo e información a asistentes durante toda la jornada.",
+    text: "Un punto de información atendido durante todo el acto para resolver dudas sin que nadie tenga que buscar al organizador.",
+  },
+  {
+    title: "Acreditaciones",
+    text: "Comprobación de listados y entrega de acreditaciones según las instrucciones del organizador, cuando el acto lo requiere.",
   },
 ];
 
@@ -126,86 +128,206 @@ export default function EmpresasPage() {
       </Section>
 
       <Section>
-        <SectionHeading
-          eyebrow="Acreditaciones"
-          title="Cómo funciona una acreditación, de principio a fin"
-          intro="Es el servicio que más nos piden las empresas y las agencias, y el que más se nota cuando sale mal: la acreditación es lo primero que vive el asistente al llegar."
-        />
-        <PhaseList
-          phases={[
-            {
-              title: "El listado llega antes, no el mismo día",
-              text: "Trabajamos con el listado que nos facilita el organizador. Cuanto antes llegue, mejor: permite prever cuánta gente hay que acreditar, si hay perfiles distintos —ponentes, prensa, patrocinadores, público general— y si cada uno lleva una acreditación diferente. Un listado que llega la misma mañana obliga a improvisar el mostrador.",
-            },
-            {
-              title: "Preparación del mostrador",
-              text: "Antes de abrir se ordena el material: acreditaciones impresas, portanombres, cordones, documentación y cualquier obsequio que entregue el organizador. Si el listado es amplio, se reparte alfabéticamente entre posiciones para que nadie tenga que buscar entre todo el montón con una persona esperando delante.",
-            },
-            {
-              title: "Recepción y comprobación",
-              text: "El asistente llega, se identifica, se localiza en el listado y se le entrega su acreditación junto con la información que corresponda: dónde es la sala, a qué hora empieza, dónde está el guardarropa o el catering. La parte de informar pesa tanto como la de acreditar.",
-            },
-            {
-              title: "Los que no están en la lista",
-              text: "Siempre hay alguien que no aparece: se inscribió tarde, viene en representación de otra persona o hay un error en el nombre. Lo que evita el atasco es haber acordado de antemano quién decide en esos casos y cómo se le avisa, para resolverlo sin frenar la cola.",
-            },
-            {
-              title: "Durante la jornada y cierre",
-              text: "El mostrador se mantiene atendido para los que llegan tarde y como punto de información. Al terminar, se devuelve al organizador el material sobrante y, si lo pide, la relación de asistentes que efectivamente recogieron su acreditación.",
-            },
-          ]}
-        />
+        <TwoColumn
+          heading={
+            <SectionHeading
+              eyebrow="Cómo se controla"
+              title="Cómo se organiza un congreso o un acto de empresa"
+              intro="Lo que hace que un acto salga bien no es tener gente: es tener a cada persona en el sitio correcto en el momento correcto."
+            />
+          }
+        >
+          <PhaseList
+            phases={[
+              {
+                title: "Reconocer el espacio antes del acto",
+                text: "Vemos el espacio con la organización: por dónde entra el público, dónde se puede formar cola sin bloquear el paso, cuántas salas hay y cómo se llega a cada una, dónde están el guardarropa, los aseos y el catering, y qué zonas quedan reservadas. Con eso decidimos cuántas posiciones hacen falta y dónde va cada persona.",
+              },
+              {
+                title: "Instrucciones al equipo",
+                text: "Antes de abrir, todo el equipo sabe lo mismo: horario del acto, programa, nombres de los ponentes, quién accede a cada zona, qué se responde a las preguntas habituales y a quién se avisa si aparece algo que no está previsto. Un asistente no debería recibir dos respuestas distintas según a quién pregunte.",
+              },
+              {
+                title: "La llegada",
+                text: "Es el tramo crítico. La mayor parte del público llega en pocos minutos y hay que moverlo sin que se forme un tapón en la puerta. Personal en la entrada recibiendo y orientando, personal dirigiendo hacia la sala y personal dentro acomodando. Los tres puntos a la vez, no uno detrás de otro.",
+              },
+              {
+                title: "Durante el acto",
+                text: "Cuando el acto arranca, el equipo se reorganiza: se refuerza la atención a quien llega tarde, se controla el acceso a las zonas restringidas y se mantiene un punto de información. En congresos con salas simultáneas, personal en cada sala gestionando los cambios de sesión.",
+              },
+              {
+                title: "Pausas, cambios de sala y cierre",
+                text: "Las pausas y los cambios de sesión mueven a todo el público a la vez y son el segundo momento de tensión de la jornada. Ahí hace falta gente orientando. Al cerrar, se comprueba que las salas y los accesos quedan despejados y se traslada a la organización cualquier incidencia.",
+              },
+            ]}
+          />
+        </TwoColumn>
       </Section>
 
       <Section tone="soft">
-        <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
-          <div className="lg:col-span-6">
-            <SectionHeading
-              title="Cómo se dimensiona el mostrador"
-              intro="La pregunta no es cuánta gente viene, sino en cuánto tiempo."
-            />
-            <Prose className="mt-6">
-              <p>
-                Doscientos asistentes que llegan repartidos a lo largo de la
-                mañana se atienden con un mostrador pequeño. Los mismos
-                doscientos asistentes citados todos a las nueve, con
-                acreditación nominativa y entrega de documentación, necesitan
-                bastante más: cada persona tarda su tiempo, y ese tiempo se
-                multiplica por la cola.
-              </p>
-              <p>
-                Por eso preguntamos siempre por la <strong>hora de citación</strong>{" "}
-                y por el <strong>momento de inicio del acto</strong>, no solo
-                por el número total de invitados. Con eso se calcula cuántas
-                posiciones hacen falta para que nadie entre a la sala con el
-                acto ya empezado.
-              </p>
-              <p>
-                Y se plantea el refuerzo donde hace falta: es habitual reforzar
-                solo la primera hora y reducir el mostrador después, en lugar
-                de mantener el mismo número de personas toda la jornada.
-              </p>
-            </Prose>
-          </div>
-          <div className="lg:col-span-6">
-            <Card>
-              <h3 className="text-base font-bold text-brand-900">
-                Qué necesitamos saber de tu evento
-              </h3>
-              <div className="mt-5">
-                <CheckList
-                  items={[
-                    "Fecha, espacio y horario del acto.",
-                    "Asistentes previstos y hora a la que están citados.",
-                    "Si hay perfiles distintos y si cada uno lleva acreditación diferente.",
-                    "Quién imprime y aporta el material de acreditación.",
-                    "Qué funciones hay que cubrir además del mostrador.",
-                    "Quién es el interlocutor de la organización el día del evento.",
-                  ]}
-                />
+        <SectionHeading
+          eyebrow="Qué resolvemos"
+          title="Los cuatro servicios que más nos piden"
+          intro="Más que una lista de funciones, lo que aportamos es que estas cuatro cosas dejen de ser un problema para quien organiza."
+        />
+
+        <div className="mt-10 space-y-6">
+          <Card>
+            <h3 className="text-xl font-bold text-brand-900">
+              Recepción de asistentes
+            </h3>
+            <div className="mt-4 grid gap-6 lg:grid-cols-2">
+              <div className="space-y-3 leading-relaxed text-ink-700">
+                <p>
+                  El asistente llega a un sitio que no conoce, muchas veces con
+                  el tiempo justo y sin saber a dónde tiene que ir. Si en la
+                  entrada no hay nadie, pregunta a quien pilla —recepción del
+                  hotel, personal de limpieza, otro invitado— y esa persona
+                  responde lo que buenamente sabe.
+                </p>
+                <p>
+                  Ponemos personal en la puerta desde antes de la hora de
+                  citación, con la información del acto aprendida: dónde es,
+                  cómo se llega, a qué hora empieza y qué hay que hacer al
+                  entrar. La gente entra derecha a donde tiene que ir.
+                </p>
               </div>
-            </Card>
-          </div>
+              <div className="rounded-2xl bg-brand-50 p-5">
+                <h4 className="text-sm font-bold uppercase tracking-[0.14em] text-brand-600">
+                  Lo que resuelve
+                </h4>
+                <div className="mt-4">
+                  <CheckList
+                    items={[
+                      "Nadie se queda parado en la puerta buscando a alguien a quien preguntar.",
+                      "La organización deja de responder las mismas cinco preguntas cien veces.",
+                      "El acto empieza a su hora porque el público ya está dentro.",
+                    ]}
+                  />
+                </div>
+              </div>
+            </div>
+          </Card>
+
+          <Card>
+            <h3 className="text-xl font-bold text-brand-900">Acomodación</h3>
+            <div className="mt-4 grid gap-6 lg:grid-cols-2">
+              <div className="space-y-3 leading-relaxed text-ink-700">
+                <p>
+                  Dejar entrar a la gente en una sala sin nadie que la acomode
+                  tiene siempre el mismo resultado: las últimas filas llenas,
+                  las primeras vacías, huecos sueltos por el medio y gente de
+                  pie al fondo mientras quedan asientos libres.
+                </p>
+                <p>
+                  Nuestro personal dirige el llenado por orden, ocupa desde
+                  delante, mantiene libres los pasillos y las salidas y reserva
+                  las zonas que la organización haya marcado para ponentes,
+                  autoridades o prensa. Si hay que sentar a alguien en un sitio
+                  concreto, se sabe de antemano.
+                </p>
+              </div>
+              <div className="rounded-2xl bg-brand-50 p-5">
+                <h4 className="text-sm font-bold uppercase tracking-[0.14em] text-brand-600">
+                  Lo que resuelve
+                </h4>
+                <div className="mt-4">
+                  <CheckList
+                    items={[
+                      "La sala se ve llena desde el escenario y desde las fotos.",
+                      "Los invitados con sitio asignado lo encuentran sin buscarlo.",
+                      "Pasillos y salidas despejados durante todo el acto.",
+                      "Los que llegan tarde entran sin cortar la sesión.",
+                    ]}
+                  />
+                </div>
+              </div>
+            </div>
+          </Card>
+
+          <Card>
+            <h3 className="text-xl font-bold text-brand-900">
+              Staff y apoyo operativo
+            </h3>
+            <div className="mt-4 grid gap-6 lg:grid-cols-2">
+              <div className="space-y-3 leading-relaxed text-ink-700">
+                <p>
+                  En todo evento hay una lista de cosas que no son de nadie:
+                  vigilar que la puerta de la sala se mantenga cerrada durante
+                  la ponencia, acompañar a un ponente hasta el backstage,
+                  reponer la documentación de la mesa de entrada, indicar dónde
+                  está el catering, cubrir un puesto mientras alguien descansa.
+                </p>
+                <p>
+                  Ese trabajo, si no hay staff, lo acaba haciendo el organizador
+                  —que debería estar pendiente del acto— o no lo hace nadie.
+                  Aportamos personal auxiliar repartido por los puntos que haga
+                  falta y con margen para lo que surja, que en un evento siempre
+                  surge algo.
+                </p>
+              </div>
+              <div className="rounded-2xl bg-brand-50 p-5">
+                <h4 className="text-sm font-bold uppercase tracking-[0.14em] text-brand-600">
+                  Lo que resuelve
+                </h4>
+                <div className="mt-4">
+                  <CheckList
+                    items={[
+                      "El organizador puede estar en el acto y no apagando fuegos.",
+                      "Cada punto del evento tiene a alguien responsable.",
+                      "Los imprevistos se resuelven sin parar nada.",
+                      "El equipo se reorganiza durante la jornada según dónde haga falta.",
+                    ]}
+                  />
+                </div>
+              </div>
+            </div>
+          </Card>
+
+          <Card>
+            <h3 className="text-xl font-bold text-brand-900">
+              Control de accesos
+            </h3>
+            <div className="mt-4 grid gap-6 lg:grid-cols-2">
+              <div className="space-y-3 leading-relaxed text-ink-700">
+                <p>
+                  En un acto de empresa el acceso no suele ser un filtro duro,
+                  pero sí tiene que estar ordenado: quién entra a la sala
+                  principal, quién pasa al espacio reservado, quién accede al
+                  backstage o a la zona de prensa, y a partir de qué momento se
+                  cierra el paso para no interrumpir.
+                </p>
+                <p>
+                  Nuestro personal aplica los criterios que fija la
+                  organización, dentro de las funciones que legalmente le
+                  corresponden. Si además hace falta seguridad privada, la
+                  aportamos a través de las empresas habilitadas con las que
+                  colaboramos y coordinamos los dos equipos.
+                </p>
+              </div>
+              <div className="rounded-2xl bg-brand-50 p-5">
+                <h4 className="text-sm font-bold uppercase tracking-[0.14em] text-brand-600">
+                  Lo que resuelve
+                </h4>
+                <div className="mt-4">
+                  <CheckList
+                    items={[
+                      "Las zonas reservadas se respetan sin que nadie tenga que discutir.",
+                      "El acto no se interrumpe por entradas a destiempo.",
+                      "Criterio uniforme: todo el equipo aplica lo mismo.",
+                      "Si hace falta seguridad privada, la coordinamos nosotros.",
+                    ]}
+                  />
+                </div>
+              </div>
+            </div>
+          </Card>
+        </div>
+
+        <div className="mt-8">
+          <TextLink href="/control-accesos-vs-vigilante-seguridad/">
+            Cómo trabajamos con empresas de seguridad privada
+          </TextLink>
         </div>
       </Section>
 
@@ -247,17 +369,15 @@ export default function EmpresasPage() {
             </p>
           </Card>
         </div>
-        <Prose className="mt-8">
-          <p>
-            En todos los casos coordinamos con quien organiza: la propia
-            empresa, la agencia de eventos o el espacio que acoge el acto. Si el
-            recinto tiene su propio personal o sus normas de acceso, el equipo
-            trabaja dentro de esas normas, no en paralelo.
-          </p>
-        </Prose>
+        <Note>
+          En todos los casos coordinamos con quien organiza: la propia empresa,
+          la agencia de eventos o el espacio que acoge el acto. Si el recinto
+          tiene su propio personal o sus normas de acceso, el equipo trabaja
+          dentro de esas normas, no en paralelo.
+        </Note>
       </Section>
 
-      <Section>
+      <Section tone="soft">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
           <div className="lg:col-span-5">
             <SectionHeading

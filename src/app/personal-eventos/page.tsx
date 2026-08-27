@@ -8,6 +8,7 @@ import { RelatedServices } from "@/components/RelatedServices";
 import {
   Card,
   CheckList,
+  Note,
   Prose,
   Section,
   SectionHeading,
@@ -186,11 +187,11 @@ export default function PersonalEventosPage() {
             </p>
           </Card>
         </div>
-        <p className="mt-6 max-w-3xl text-[0.95rem] leading-relaxed text-ink-500">
+        <Note>
           La dimensión final del equipo se confirma siempre en el presupuesto,
           en función de la disponibilidad y de las necesidades reales del
           evento.
-        </p>
+        </Note>
       </Section>
 
       <Section tone="soft">
@@ -245,13 +246,11 @@ export default function PersonalEventosPage() {
             </p>
           </Card>
         </div>
-        <Prose className="mt-8">
-          <p>
-            Con esos datos planteamos una propuesta y la explicamos: cuántas
-            personas, en qué posiciones y en qué franjas. Si te parece que
-            sobra o falta cobertura, se ajusta antes de cerrar el presupuesto.
-          </p>
-        </Prose>
+        <Note>
+          Con esos datos planteamos una propuesta y la explicamos: cuántas
+          personas, en qué posiciones y en qué franjas. Si te parece que sobra o
+          falta cobertura, se ajusta antes de cerrar el presupuesto.
+        </Note>
       </Section>
 
       <Section>

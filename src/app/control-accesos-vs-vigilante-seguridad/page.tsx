@@ -5,7 +5,14 @@ import { CtaSection } from "@/components/CtaSection";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { RelatedServices } from "@/components/RelatedServices";
-import { Card, Section, SectionHeading, TextLink } from "@/components/ui";
+import {
+  Card,
+  Note,
+  Section,
+  SectionHeading,
+  TextLink,
+  TwoColumn,
+} from "@/components/ui";
 import { breadcrumbJsonLd } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/seo";
 
@@ -73,20 +80,40 @@ export default function ComparativaPage() {
           <p>
             Son dos figuras distintas, con normativa y funciones diferentes.
             Esta página explica en qué se diferencian para ayudarte a decidir
-            qué necesita tu local o tu evento.
+            qué necesita tu local o tu evento, y qué pasa cuando hacen falta
+            las dos.
           </p>
+        }
+        aside={
+          <Card className="bg-white">
+            <h2 className="text-base font-bold text-brand-900">
+              En una línea
+            </h2>
+            <p className="mt-3 text-[0.95rem] leading-relaxed text-ink-700">
+              El control de accesos organiza la entrada del público. La
+              seguridad privada desarrolla funciones que la ley le reserva.
+            </p>
+            <p className="mt-3 text-[0.95rem] leading-relaxed text-ink-700">
+              GaliControl presta la primera y, cuando hace falta la segunda, la
+              aporta a través de empresas habilitadas con las que colabora, con
+              una sola propuesta y un solo interlocutor.
+            </p>
+          </Card>
         }
       />
 
       <Section>
-        <p className="max-w-3xl rounded-xl border border-brand-200 bg-brand-50 px-5 py-4 text-[0.95rem] leading-relaxed text-ink-700">
+        <Note>
           Esta información es divulgativa y no sustituye al asesoramiento
           jurídico ni a la consulta de la normativa aplicable en cada caso.{" "}
           <strong>
             GaliControl Brigantia no es una empresa de seguridad privada
           </strong>{" "}
-          y no presta servicios reservados a ese sector.
-        </p>
+          y no presta por sí misma servicios reservados a ese sector. Cuando un
+          servicio necesita vigilantes de seguridad, los aportamos a través de
+          empresas de seguridad privada habilitadas con las que colaboramos, y
+          coordinamos el conjunto para que tengas un único interlocutor.
+        </Note>
       </Section>
 
       <Section tone="soft">
@@ -184,11 +211,11 @@ export default function ComparativaPage() {
             </Card>
           ))}
         </div>
-        <p className="mt-6 max-w-3xl text-[0.95rem] leading-relaxed text-ink-500">
+        <Note>
           Ante una incidencia que exceda del ámbito del control de accesos, lo
           que corresponde es avisar a la organización, al titular del local y,
           cuando proceda, a las fuerzas y cuerpos de seguridad.
-        </p>
+        </Note>
       </Section>
 
       <Section>
@@ -210,35 +237,90 @@ export default function ComparativaPage() {
           </Card>
           <Card className="bg-brand-50">
             <h3 className="text-lg font-bold text-brand-900">
-              Puede requerirse seguridad privada
+              Puede requerirse también seguridad privada
             </h3>
             <p className="mt-3 leading-relaxed text-ink-700">
               Cuando la actividad exige funciones reservadas a ese sector o
               cuando la normativa aplicable al tipo de espectáculo o instalación
-              lo establece. En ese caso hay que contratarlo con una empresa de
-              seguridad privada habilitada.
+              lo establece. En ese caso no tienes que buscar por tu cuenta:
+              aportamos los vigilantes a través de las empresas de seguridad
+              privada habilitadas con las que colaboramos y coordinamos los dos
+              servicios.
             </p>
           </Card>
         </div>
       </Section>
 
       <Section tone="soft">
-        <SectionHeading
-          title="¿Pueden trabajar conjuntamente?"
-          intro="Sí. En muchos eventos conviven ambas figuras, cada una con su ámbito de funciones: el personal de control de accesos organiza la entrada del público y el personal de seguridad privada, contratado a través de su empresa habilitada, desarrolla las funciones que le corresponden. Son servicios complementarios, no intercambiables."
-        />
+        <TwoColumn
+          heading={
+            <SectionHeading
+              eyebrow="Servicio integral"
+              title="Sí pueden trabajar conjuntamente, y nosotros lo coordinamos"
+            />
+          }
+        >
+          <p>
+            En muchos eventos conviven ambas figuras, cada una en su ámbito: el
+            personal de control de accesos organiza la entrada del público y el
+            personal de seguridad privada desarrolla las funciones que la
+            normativa le reserva. Son servicios complementarios, no
+            intercambiables.
+          </p>
+          <p>
+            <strong>
+              GaliControl trabaja con empresas de seguridad privada habilitadas
+            </strong>{" "}
+            para prestar servicios conjuntos. Si tu evento o tu local necesita
+            vigilantes además de control de accesos, no tienes que buscar y
+            contratar por separado ni hacer de intermediario entre dos
+            proveedores: nosotros aportamos el personal de control de accesos y
+            el apoyo auxiliar, y la parte de seguridad privada la cubre la
+            empresa habilitada con la que colaboramos.
+          </p>
+          <p>
+            Tú tratas con un único interlocutor y recibes una propuesta
+            conjunta. Nosotros nos ocupamos de que las dos partes lleguen con
+            las mismas instrucciones, sepan quién hace qué y trabajen
+            coordinadas durante el servicio, que es donde suelen aparecer los
+            problemas cuando cada empresa va por su cuenta.
+          </p>
+          <p className="text-[0.95rem] text-ink-500">
+            Cada actividad se presta dentro de su marco legal:{" "}
+            {`GaliControl Brigantia SL`} no realiza funciones reservadas a la
+            seguridad privada, y los vigilantes son siempre personal habilitado
+            de una empresa de seguridad privada inscrita.
+          </p>
+        </TwoColumn>
       </Section>
 
       <Section>
-        <SectionHeading
-          title="Cómo solicitar personal"
-          intro="Cuéntanos qué tipo de local o evento tienes, la fecha, el horario y el público previsto. Con esa información te decimos qué podemos cubrir nosotros y te lo presupuestamos. Si tu caso requiere seguridad privada, te lo diremos con claridad."
-        />
-        <div className="mt-6">
-          <TextLink href="/preguntas-frecuentes/">
-            Ver preguntas frecuentes
-          </TextLink>
-        </div>
+        <TwoColumn
+          heading={
+            <SectionHeading
+              eyebrow="Siguiente paso"
+              title="Cómo solicitar personal"
+            />
+          }
+        >
+          <p>
+            Cuéntanos qué tipo de local o evento tienes, la fecha, el horario y
+            el público previsto. Con esa información te decimos qué cubrimos
+            nosotros directamente y qué parte, si la hay, corresponde a
+            seguridad privada.
+          </p>
+          <p>
+            Si hacen falta las dos cosas, te preparamos una propuesta conjunta
+            con todo incluido y un solo teléfono al que llamar. No rechazamos un
+            servicio porque necesite vigilantes: sumamos a quien haga falta y
+            lo coordinamos.
+          </p>
+          <div className="pt-2">
+            <TextLink href="/preguntas-frecuentes/">
+              Ver preguntas frecuentes
+            </TextLink>
+          </div>
+        </TwoColumn>
       </Section>
 
       <RelatedServices exclude={PATH} limit={4} />

@@ -332,12 +332,69 @@ export function PhaseList({
             <h3 className="text-base font-bold text-brand-900 lg:text-lg">
               {phase.title}
             </h3>
-            <p className="mt-2 max-w-3xl leading-relaxed text-ink-700">
-              {phase.text}
-            </p>
+            <p className="mt-2 leading-relaxed text-ink-700">{phase.text}</p>
           </div>
         </li>
       ))}
     </ol>
+  );
+}
+
+/**
+ * Sección a dos columnas: encabezado a la izquierda y texto a la derecha.
+ *
+ * Resuelve el problema de los bloques de texto que se quedaban estrechos
+ * dentro de un contenedor ancho y parecían mal alineados. Aquí el texto llena
+ * su columna, la sección ocupa todo el ancho de la web y la medida de lectura
+ * sigue siendo cómoda.
+ */
+export function TwoColumn({
+  heading,
+  children,
+  aside,
+}: {
+  heading: React.ReactNode;
+  children: React.ReactNode;
+  aside?: React.ReactNode;
+}) {
+  return (
+    <div className="grid gap-8 lg:grid-cols-12 lg:gap-14">
+      <div className="lg:col-span-4">
+        <div className="lg:sticky lg:top-28">{heading}</div>
+      </div>
+      <div className="lg:col-span-8">
+        <div className="space-y-4 text-[1.02rem] leading-relaxed text-ink-700">
+          {children}
+        </div>
+        {aside ? <div className="mt-8">{aside}</div> : null}
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Aviso o matiz al final de una sección.
+ *
+ * Va en una caja que ocupa todo el ancho del contenedor: antes eran párrafos
+ * sueltos limitados a `max-w-3xl` detrás de una rejilla a ancho completo, y se
+ * quedaban cortos sin que se entendiera por qué.
+ */
+export function Note({
+  children,
+  tone = "soft",
+}: {
+  children: React.ReactNode;
+  tone?: "soft" | "plain";
+}) {
+  return (
+    <div
+      className={`mt-8 rounded-2xl border px-5 py-4 text-[0.97rem] leading-relaxed lg:px-6 lg:py-5 ${
+        tone === "soft"
+          ? "border-brand-200 bg-brand-50 text-ink-700"
+          : "border-brand-100 bg-white text-ink-700"
+      }`}
+    >
+      {children}
+    </div>
   );
 }

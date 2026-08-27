@@ -15,6 +15,7 @@ import {
   Section,
   SectionHeading,
   TextLink,
+  TwoColumn,
 } from "@/components/ui";
 import { breadcrumbJsonLd, serviceJsonLd } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/seo";
@@ -149,12 +150,16 @@ export default function ControlDeAccesosPage() {
       </Section>
 
       <Section tone="soft">
-        <SectionHeading
-          eyebrow="Cómo se organiza"
-          title="Un servicio de accesos, paso a paso"
-          intro="El trabajo que evita problemas en la puerta se hace antes de que llegue el primer asistente. Así planteamos un servicio de control de accesos."
-        />
-        <PhaseList
+        <TwoColumn
+          heading={
+            <SectionHeading
+              eyebrow="Cómo se organiza"
+              title="Un servicio de accesos, paso a paso"
+              intro="El trabajo que evita problemas en la puerta se hace antes de que llegue el primer asistente."
+            />
+          }
+        >
+          <PhaseList
           phases={[
             {
               title: "Antes del servicio",
@@ -176,8 +181,9 @@ export default function ControlDeAccesosPage() {
               title: "Cierre",
               text: "Control de la salida del público, revisión de que las zonas de acceso quedan despejadas y traslado a la organización de cualquier incidencia relevante que se haya producido durante el servicio.",
             },
-          ]}
-        />
+            ]}
+          />
+        </TwoColumn>
       </Section>
 
       <Section>
@@ -244,8 +250,14 @@ export default function ControlDeAccesosPage() {
             sector y la realizan empresas y vigilantes habilitados.
           </p>
           <p className="mt-3">
-            GaliControl Brigantia presta servicios de control de accesos y
-            personal auxiliar, no servicios de seguridad privada.
+            GaliControl Brigantia presta control de accesos y personal auxiliar.
+            Cuando un servicio necesita también vigilantes,{" "}
+            <strong>
+              los aportamos a través de empresas de seguridad privada
+              habilitadas con las que colaboramos
+            </strong>{" "}
+            y coordinamos los dos equipos, para que tengas un solo interlocutor
+            y una sola propuesta.
           </p>
         </LegalNote>
       </Section>

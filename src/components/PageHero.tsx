@@ -19,6 +19,7 @@ export function PageHero({
   cta,
   photoLabel,
   showCta = true,
+  aside,
 }: {
   eyebrow?: string;
   title: string;
@@ -26,17 +27,20 @@ export function PageHero({
   cta: string;
   photoLabel?: string;
   showCta?: boolean;
+  /** Contenido de la columna derecha en las páginas sin fotografía. */
+  aside?: React.ReactNode;
 }) {
   const hasPhoto = Boolean(photoLabel);
+  const hasSide = hasPhoto || Boolean(aside);
 
   return (
     <section className="border-b border-brand-100 bg-gradient-to-b from-brand-50 to-white">
       <div
         className={`container-page py-10 lg:py-16 ${
-          hasPhoto ? "grid gap-10 lg:grid-cols-12 lg:items-center" : ""
+          hasSide ? "grid gap-10 lg:grid-cols-12 lg:items-center" : ""
         }`}
       >
-        <div className={hasPhoto ? "lg:col-span-7" : ""}>
+        <div className={hasSide ? "lg:col-span-7" : ""}>
           {eyebrow ? (
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.16em] text-brand-600">
               {eyebrow}
@@ -63,6 +67,8 @@ export function PageHero({
               sizes="(min-width: 1024px) 40vw, 100vw"
             />
           </div>
+        ) : aside ? (
+          <div className="lg:col-span-5">{aside}</div>
         ) : null}
       </div>
     </section>

@@ -14,6 +14,7 @@ import {
   Prose,
   Section,
   SectionHeading,
+  TwoColumn,
 } from "@/components/ui";
 import { breadcrumbJsonLd, serviceJsonLd } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/seo";
@@ -156,12 +157,16 @@ export default function LocalesPage() {
       </Section>
 
       <Section>
-        <SectionHeading
-          eyebrow="El arranque"
-          title="Cómo empiezan las primeras semanas en un local nuevo"
-          intro="Un servicio recurrente no funciona bien desde el primer día por casualidad. Las primeras semanas son de rodaje, y conviene plantearlas como tal."
-        />
-        <PhaseList
+        <TwoColumn
+          heading={
+            <SectionHeading
+              eyebrow="El arranque"
+              title="Cómo empiezan las primeras semanas en un local nuevo"
+              intro="Un servicio recurrente no funciona bien desde el primer día por casualidad. Las primeras semanas son de rodaje."
+            />
+          }
+        >
+          <PhaseList
           phases={[
             {
               title: "Reconocer el local antes de empezar",
@@ -179,8 +184,9 @@ export default function LocalesPage() {
               title: "El equipo se estabiliza",
               text: "A partir de ahí el objetivo es que sean siempre las mismas personas las que cubren el local. Un equipo habitual conoce el público, reconoce a los clientes de siempre, sabe qué noches se complican y aplica los criterios sin tener que preguntar. Esa es la diferencia real entre contratar horas y tener un servicio.",
             },
-          ]}
-        />
+            ]}
+          />
+        </TwoColumn>
       </Section>
 
       <Section tone="soft">
@@ -229,11 +235,14 @@ export default function LocalesPage() {
       </Section>
 
       <Section>
-        <SectionHeading
-          title="Cuando cambia alguien del equipo"
-          intro="Es la parte que más se nota cuando se trabaja con personas sueltas y no con una empresa."
-        />
-        <Prose className="mt-6">
+        <TwoColumn
+          heading={
+            <SectionHeading
+              title="Cuando cambia alguien del equipo"
+              intro="Es la parte que más se nota cuando se trabaja con personas sueltas y no con una empresa."
+            />
+          }
+        >
           <p>
             En un servicio recurrente antes o después hay una baja, una
             incidencia o alguien que deja el puesto. Si el local ha contratado
@@ -254,7 +263,7 @@ export default function LocalesPage() {
             garantizar nadie de forma absoluta. Lo que cambia es de quién es el
             problema y quién dedica el tiempo a resolverlo.
           </p>
-        </Prose>
+        </TwoColumn>
       </Section>
 
       <Section tone="soft">
@@ -303,21 +312,24 @@ export default function LocalesPage() {
       </Section>
 
       <Section>
-        <SectionHeading
-          title="Menos gestión para el responsable del local"
-          intro={
-            <>
-              <p>
-                No se trata simplemente de contratar una persona durante unas
-                horas.
-              </p>
-              <p className="mt-3">
-                Se trata de que tengas un servicio organizado, un interlocutor y
-                capacidad de respuesta cuando surge una necesidad.
-              </p>
-            </>
+        <TwoColumn
+          heading={
+            <SectionHeading title="Menos gestión para el responsable del local" />
           }
-        />
+        >
+          <p>
+            No se trata simplemente de contratar una persona durante unas
+            horas. Se trata de que tengas un servicio organizado, un
+            interlocutor y capacidad de respuesta cuando surge una necesidad.
+          </p>
+          <p>
+            El responsable de un local ya tiene bastante con la barra, la
+            programación, los proveedores y el personal de sala. La puerta es
+            una cosa más, y es de las pocas que se puede delegar entera: quién
+            va cada noche, qué criterio aplica, qué pasa si alguien falla y a
+            quién llamar cuando surge algo. Eso es lo que dejas de gestionar.
+          </p>
+        </TwoColumn>
       </Section>
 
       <RelatedServices exclude={PATH} />

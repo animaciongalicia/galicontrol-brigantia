@@ -6,7 +6,7 @@ import { FaqList } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { RelatedServices } from "@/components/RelatedServices";
-import { LegalNote, Section, TextLink } from "@/components/ui";
+import { Card, LegalNote, Section, TextLink } from "@/components/ui";
 import { faqs } from "@/content/faqs";
 import { breadcrumbJsonLd, faqJsonLd } from "@/lib/jsonld";
 import { pageMetadata } from "@/lib/seo";
@@ -36,9 +36,24 @@ export default function FaqPage() {
         cta="hero_faqs"
         intro={
           <p>
-            Respuestas breves y concretas. Si tu caso no aparece aquí,
+            Respuestas breves y concretas sobre precios, mínimos, plazos,
+            sustituciones y normativa aplicable. Si tu caso no aparece aquí,
             pregúntanoslo directamente por teléfono o WhatsApp.
           </p>
+        }
+        aside={
+          <Card className="bg-white">
+            <h2 className="text-base font-bold text-brand-900">
+              Las cinco dudas más repetidas
+            </h2>
+            <ul className="mt-4 space-y-2.5 text-[0.95rem] leading-relaxed text-ink-700">
+              <li>Cuánto cuesta y de qué depende el precio.</li>
+              <li>Si hay un mínimo de horas.</li>
+              <li>Qué pasa si el servicio se alarga.</li>
+              <li>Quién cubre una baja de última hora.</li>
+              <li>Si hace falta controlador o vigilante de seguridad.</li>
+            </ul>
+          </Card>
         }
       />
 

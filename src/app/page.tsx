@@ -373,11 +373,17 @@ export default function HomePage() {
           <p>
             Los servicios de control de accesos y personal auxiliar no deben
             confundirse con los servicios legalmente reservados a la seguridad
-            privada.
+            privada. GaliControl presta control de accesos y apoyo dentro de las
+            funciones que legalmente le corresponden.
           </p>
           <p className="mt-3">
-            GaliControl presta servicios de control de accesos y apoyo dentro de
-            las funciones legalmente correspondientes.
+            <strong>
+              Si tu servicio necesita además vigilantes de seguridad, también lo
+              resolvemos.
+            </strong>{" "}
+            Colaboramos con empresas de seguridad privada habilitadas: te
+            preparamos una propuesta conjunta, con un único interlocutor y los
+            dos equipos coordinados, cada uno dentro de su marco legal.
           </p>
         </LegalNote>
       </Section>

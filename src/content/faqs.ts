@@ -31,7 +31,7 @@ export const faqs: FaqItem[] = [
   {
     question: "¿Prestáis servicios de seguridad privada?",
     answer:
-      "No. GaliControl Brigantia no es una empresa de seguridad privada y no presta servicios legalmente reservados a ese sector. Prestamos servicios de control de accesos y personal auxiliar dentro de las funciones que legalmente corresponden. Si tu evento necesita vigilantes de seguridad, tendrás que contratarlos con una empresa de seguridad privada habilitada.",
+      "GaliControl Brigantia no es una empresa de seguridad privada y no realiza por sí misma funciones legalmente reservadas a ese sector: prestamos control de accesos y personal auxiliar. Ahora bien, si tu servicio necesita vigilantes de seguridad, no tienes que buscarlos por tu cuenta: colaboramos con empresas de seguridad privada habilitadas y te preparamos una propuesta conjunta, con un único interlocutor y los dos equipos coordinados, cada uno dentro de su marco legal.",
   },
   {
     question: "¿Cuánto cuesta contratar personal?",
@@ -49,6 +49,11 @@ export const faqs: FaqItem[] = [
       "En el presupuesto dejamos definidas las horas incluidas y las condiciones de ampliación, para que no haya dudas si el evento se alarga. Si durante el servicio se necesita más tiempo, se aplica lo acordado previamente.",
   },
   {
+    question: "¿Podéis cubrir un servicio que necesita también vigilantes de seguridad?",
+    answer:
+      "Sí. Trabajamos con empresas de seguridad privada habilitadas para prestar servicios conjuntos. Nosotros aportamos el control de accesos y el personal auxiliar, y la parte de seguridad privada la cubre la empresa habilitada con la que colaboramos. Tú recibes una sola propuesta y tratas con un único interlocutor, y nos ocupamos de que los dos equipos trabajen coordinados durante el servicio.",
+  },
+  {
     question: "¿Podéis trabajar solo una noche?",
     answer:
       "Sí. Trabajamos tanto servicios puntuales de una sola fecha como servicios recurrentes. Un refuerzo para una noche concreta, una fiesta o una sustitución puntual son encargos habituales.",
@@ -62,6 +67,11 @@ export const faqs: FaqItem[] = [
     question: "¿Qué ocurre si una persona del equipo se pone enferma?",
     answer:
       "Organizamos la sustitución siempre que la disponibilidad operativa lo permita. Ese es precisamente el sentido de trabajar con una empresa que coordina el equipo: no tienes que buscar tú un sustituto ni llamar uno a uno a los trabajadores.",
+  },
+  {
+    question: "¿Qué pasa si el aforo se llena antes de lo previsto?",
+    answer:
+      "El aforo lo fija la licencia del local o del recinto y no es negociable en la puerta. Lo que sí se puede prever es qué hacer cuando se llega al límite: si se para la entrada, si se aplica el criterio de una salida por cada entrada o cómo se informa a quien está esperando. Eso se acuerda con el titular o con el organizador antes del servicio, para que el equipo no tenga que decidirlo sobre la marcha.",
   },
   {
     question: "¿Trabajáis fuera de A Coruña?",
