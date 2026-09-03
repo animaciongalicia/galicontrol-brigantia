@@ -36,8 +36,7 @@ Siguen pendientes:
 
 | Dato | Dónde | Estado |
 | --- | --- | --- |
-| Email de contacto | `NEXT_PUBLIC_EMAIL` | `PENDIENTE_EMAIL` |
-| Buzón que recibe los formularios | `LEADS_EMAIL` | sin definir |
+| Buzón que recibe los formularios | `LEADS_EMAIL` | sin definir (usar `galicontrol@brigantia.pro`) |
 | Claves de Resend | `RESEND_API_KEY`, `FROM_EMAIL` | sin definir |
 | Redes sociales | `NEXT_PUBLIC_INSTAGRAM`, etc. | sin definir |
 | Fotografías reales | `public/` + componente `<Photo />` | huecos con marcador |
@@ -203,11 +202,20 @@ honeypot antispam y límite de 3 envíos cada 10 minutos por IP.
 3. Define estas variables (en `.env.local` y en Vercel):
 
 ```
-RESEND_API_KEY=re_xxxxxxxxxxxx      # clave de Resend (nunca en GitHub)
-LEADS_EMAIL=dani@…                  # buzón que recibe las solicitudes
+RESEND_API_KEY=re_xxxxxxxxxxxx                  # clave de Resend
+LEADS_EMAIL=galicontrol@brigantia.pro           # buzón que recibe las solicitudes
 FROM_EMAIL=web@galicontrolbrigantia.com         # remitente verificado en Resend
-NEXT_PUBLIC_SITE_URL=https://…      # dominio final
 ```
+
+El **remitente** debe pertenecer a un dominio verificado en Resend: verifica
+ahí `galicontrolbrigantia.com`. El **destinatario** puede ser cualquier buzón,
+no necesita verificación.
+
+### Direcciones de correo
+- **Pública** (footer, JSON-LD y enlace «enviarlo desde mi correo»):
+  `galicontrol@brigantia.pro`, definida en `src/config/site.ts`.
+- Cuando esté operativa `info@galicontrolbrigantia.com`, que encaja mejor con
+  el dominio de la web, cámbiala ahí o define `NEXT_PUBLIC_EMAIL` en Vercel.
 
 Si faltan, el formulario no se rompe: muestra un aviso pidiendo llamar o
 escribir por WhatsApp y deja constancia del problema en los logs del servidor.

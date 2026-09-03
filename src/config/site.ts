@@ -52,7 +52,15 @@ function normalizeSiteUrl(value: string | undefined): string {
 const phoneE164 = envOr(process.env.NEXT_PUBLIC_PHONE, "+34626588172");
 /** WhatsApp en formato wa.me: solo dígitos con prefijo país, p.ej. 34600000000 */
 const whatsappNumber = envOr(process.env.NEXT_PUBLIC_WHATSAPP, "34626588172");
-const email = envOr(process.env.NEXT_PUBLIC_EMAIL, "PENDIENTE_EMAIL");
+/**
+ * Email público: el que se ve en el footer y el que recibe los mensajes del
+ * enlace "enviarlo desde mi correo".
+ *
+ * De momento es la dirección que ya funciona. Cuando esté operativa
+ * info@galicontrolbrigantia.com —que además encaja con el dominio de la web—
+ * basta con cambiarla aquí o definir NEXT_PUBLIC_EMAIL en Vercel.
+ */
+const email = envOr(process.env.NEXT_PUBLIC_EMAIL, "galicontrol@brigantia.pro");
 const siteUrl = normalizeSiteUrl(process.env.NEXT_PUBLIC_SITE_URL);
 
 /** Formatea +34981123456 -> +34 981 12 34 56 (para mostrar en pantalla). */
