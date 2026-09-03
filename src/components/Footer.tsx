@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 
+import { CookieSettingsLink } from "@/components/CookieConsent";
 import { LogoMark } from "@/components/Logo";
 import { footerNav, hasEmail, hasPhone, site } from "@/config/site";
 import {
@@ -151,6 +152,12 @@ export function Footer() {
                 </Link>
               </li>
             ))}
+            <li className="flex items-center gap-2">
+              <span aria-hidden="true">·</span>
+              <CookieSettingsLink className="py-1 transition-colors hover:text-accent-400">
+                Preferencias de cookies
+              </CookieSettingsLink>
+            </li>
           </ul>
         </div>
       </div>

@@ -39,9 +39,7 @@ Siguen pendientes:
 | Email de contacto | `NEXT_PUBLIC_EMAIL` | `PENDIENTE_EMAIL` |
 | Buzón que recibe los formularios | `LEADS_EMAIL` | sin definir |
 | Claves de Resend | `RESEND_API_KEY`, `FROM_EMAIL` | sin definir |
-| CIF | `NEXT_PUBLIC_TAX_ID` | `PENDIENTE_CIF` |
 | Redes sociales | `NEXT_PUBLIC_INSTAGRAM`, etc. | sin definir |
-| Verificación de Search Console | `NEXT_PUBLIC_GSC_VERIFICATION` | sin definir |
 | Fotografías reales | `public/` + componente `<Photo />` | huecos con marcador |
 
 Mientras un dato siga en `PENDIENTE_*`, la web **no lo publica en los datos
@@ -162,11 +160,26 @@ marcador indica en pantalla qué archivo falta. Más detalle en
 `public/llms.txt`. Si cambia el dominio, actualiza también las URLs de ese
 archivo (es estático y no lee la configuración).
 
-### Google Search Console
-Da de alta el dominio en Search Console, elige la verificación por etiqueta
-HTML y copia **solo el valor** del atributo `content` en la variable
-`NEXT_PUBLIC_GSC_VERIFICATION`. Tras el redeploy, pulsa «Verificar» y envía
-`https://tudominio/sitemap.xml`.
+### Medición y cookies
+Los tres identificadores están en `src/config/site.ts`: verificación de Search
+Console, Google Tag Manager (`GTM-M9DJPKNC`) y Google Analytics 4
+(`G-V3B4SHXV3R`). Para desactivar uno, déjalo vacío.
+
+**Tag Manager y Analytics solo se cargan después de que la persona acepte las
+cookies.** Si rechaza, no se descarga nada de Google en ningún momento. Está
+implementado con Consent Mode v2 de Google: el estado por defecto es denegado y
+solo pasa a concedido al aceptar.
+
+Vercel Web Analytics va aparte: no usa cookies, así que no depende del
+consentimiento y mide también a quien lo rechaza.
+
+⚠️ **No crees una etiqueta de GA4 dentro de Tag Manager.** GA4 ya se carga
+directamente; si lo duplicas, contarás cada visita dos veces. Usa Tag Manager
+para lo demás (Google Ads, píxeles, etc.).
+
+El banner y la lógica están en `src/components/CookieConsent.tsx` y
+`src/lib/consent.ts`. El enlace «Preferencias de cookies» del footer y de la
+política reabre el banner para cambiar la decisión.
 
 ### Año del aviso de copyright
 `src/components/Footer.tsx` → constante `year`.

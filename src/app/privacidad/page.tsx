@@ -13,7 +13,7 @@ export const metadata: Metadata = pageMetadata({
 
 export default function PrivacidadPage() {
   return (
-    <LegalLayout title="Política de privacidad" updated="agosto de 2026">
+    <LegalLayout title="Política de privacidad" updated="septiembre de 2026">
       <h2>1. Responsable del tratamiento</h2>
       <ul>
         <li>
@@ -79,6 +79,12 @@ export default function PrivacidadPage() {
         proveedores tecnológicos que actúan como encargados del tratamiento para
         el alojamiento del sitio web y el envío de los correos generados por el
         formulario.
+      </p>
+      <p>
+        Si aceptas las cookies analíticas, Google Ireland Limited trata datos de
+        navegación agregados a través de Google Analytics y Google Tag Manager.
+        Puedes consultar el detalle y revocar tu consentimiento en la{" "}
+        <a href="/cookies/">política de cookies</a>.
       </p>
 
       <h2>7. Tus derechos</h2>

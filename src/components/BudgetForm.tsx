@@ -5,9 +5,55 @@ import { useFormStatus } from "react-dom";
 import { CheckCircle2 } from "lucide-react";
 
 import { PhoneButton, WhatsappButton } from "@/components/ContactButtons";
+import { hasEmail, site } from "@/config/site";
 import { submitBudgetRequest } from "@/app/presupuesto/actions";
 import { trackCta } from "@/lib/analytics";
 import { initialBudgetState } from "@/lib/budget";
+
+/**
+ * Alternativa para quien prefiere que le quede copia en su bandeja de
+ * enviados: abre su propio programa de correo con el mensaje ya redactado.
+ * Solo aparece si hay una dirección de contacto configurada.
+ */
+function EnviarDesdeMiCorreo({ origen }: { origen: string }) {
+  if (!hasEmail) return null;
+
+  function abrir() {
+    const form = document.querySelector<HTMLFormElement>(
+      "form[data-presupuesto]",
+    );
+    if (!form) return;
+    const datos = new FormData(form);
+    const valor = (campo: string) => String(datos.get(campo) ?? "").trim();
+
+    const cuerpo = [
+      `Nombre: ${valor("nombre") || "(sin indicar)"}`,
+      `Empresa: ${valor("empresa") || "(no indicada)"}`,
+      `Teléfono: ${valor("telefono") || "(sin indicar)"}`,
+      `Fecha del servicio: ${valor("fecha") || "(sin indicar)"}`,
+      "",
+      "Qué necesito:",
+      valor("comentario") || "(sin comentario)",
+      "",
+      `Escrito desde ${site.url}${origen}`,
+    ].join("\n");
+
+    window.location.href =
+      `mailto:${site.contact.email}` +
+      `?subject=${encodeURIComponent("Solicitud de presupuesto — GaliControl")}` +
+      `&body=${encodeURIComponent(cuerpo)}`;
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={abrir}
+      className="text-sm font-semibold text-brand-600 underline decoration-brand-300 underline-offset-4 transition-colors hover:text-brand-800"
+    >
+      Prefiero enviarlo desde mi correo y quedarme una copia
+    </button>
+  );
+}
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -93,6 +139,7 @@ export function BudgetForm({
           origin: origen,
         })
       }
+      data-presupuesto
       className="rounded-2xl border border-brand-100 bg-white p-6 lg:p-8"
       noValidate
     >
@@ -219,8 +266,9 @@ export function BudgetForm({
         </div>
       </div>
 
-      <div className="mt-7">
+      <div className="mt-7 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
         <SubmitButton />
+        <EnviarDesdeMiCorreo origen={origen} />
       </div>
 
       <p className="mt-4 text-xs leading-relaxed text-ink-500">

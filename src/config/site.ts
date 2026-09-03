@@ -72,7 +72,7 @@ export const site = {
   /** Razón social (facturación y avisos legales). */
   legalName: "GALICONTROL BRIGANTIA SL",
   /** CIF: pendiente de facilitar. Se muestra en el aviso legal cuando exista. */
-  taxId: envOr(process.env.NEXT_PUBLIC_TAX_ID, "PENDIENTE_CIF"),
+  taxId: envOr(process.env.NEXT_PUBLIC_TAX_ID, "B22814933"),
 
   tagline:
     "Control de accesos y personal auxiliar para eventos, locales y empresas en A Coruña y Galicia.",
@@ -157,9 +157,28 @@ export const socialProfiles: string[] = Object.values(site.social).filter(
  * `google-site-verification`, no la etiqueta entera). Se define en Vercel como
  * NEXT_PUBLIC_GSC_VERIFICATION. Si está vacío no se imprime nada.
  */
-export const googleSiteVerification = (
-  process.env.NEXT_PUBLIC_GSC_VERIFICATION ?? ""
-).trim();
+export const googleSiteVerification = envOr(
+  process.env.NEXT_PUBLIC_GSC_VERIFICATION,
+  "6AN53enYCoLD_DuK0jOMjamqlhXlnEilHTQbI2_MQYk",
+);
+
+/**
+ * MEDICIÓN DE GOOGLE
+ * ---------------------------------------------------------------------------
+ * Los dos identificadores se cargan SOLO después de que la persona acepte las
+ * cookies. Si dejas uno vacío, ese servicio no se carga nunca.
+ *
+ * Importante: GA4 va aquí cargado directamente. NO añadas además una etiqueta
+ * de GA4 dentro de Tag Manager o contarás cada visita dos veces.
+ */
+export const googleTagManagerId = envOr(
+  process.env.NEXT_PUBLIC_GTM_ID,
+  "GTM-M9DJPKNC",
+);
+export const googleAnalyticsId = envOr(
+  process.env.NEXT_PUBLIC_GA_ID,
+  "G-V3B4SHXV3R",
+);
 
 export const hasPhone = !isPending(site.contact.phone);
 export const hasWhatsapp = !isPending(site.contact.whatsapp);
