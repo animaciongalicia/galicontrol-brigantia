@@ -12,11 +12,21 @@ que tocar ninguna línea de código.
 | `locales.jpg` | Página de Locales | Puerta de un pub, sala o discoteca con personal. |
 | `empresas.jpg` | Página de Empresas | Mostrador de recepción o acreditación en un congreso. |
 
+## Ojo: nada de texto dentro de la foto
+
+No subas imágenes con titulares o eslóganes quemados encima. En la web ya hay
+un titular real justo al lado, y quedan dos textos compitiendo. Además, el
+texto de una imagen no lo lee ni Google ni un lector de pantalla.
+
 ## Cómo deben ser
 
 - **Formato:** `.jpg` (o `.webp`). Respeta la extensión de la tabla.
-- **Tamaño:** unos 1600 px de ancho es más que suficiente. Evita fotos de 8 MB
-  salidas del móvil sin comprimir: ralentizan la web.
+- **Tamaño:** 1440-1600 px de ancho es más que suficiente.
+- **Peso:** por debajo de 400 KB. Next.js las reoptimiza al servirlas, así que
+  un archivo pesado no penaliza al visitante, pero sí engorda el repositorio y
+  alarga los despliegues.
+- **Luz:** si es una foto nocturna, comprueba que se distingan las caras y la
+  ropa. Muy oscura no se lee sobre el fondo claro de la web.
 - **Orientación:** horizontal. Los huecos son apaisados (proporción 4:3).
 - **Contenido:** gente trabajando, no posados. Y cuidado con que se reconozcan
   caras de clientes o asistentes sin su permiso.
