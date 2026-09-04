@@ -146,7 +146,7 @@ export function Footer() {
                 {index > 0 ? <span aria-hidden="true">·</span> : null}
                 <Link
                   href={item.href}
-                  className="py-1 transition-colors hover:text-accent-400"
+                  className="inline-flex min-h-6 items-center py-1 transition-colors hover:text-accent-400"
                 >
                   {item.label}
                 </Link>
@@ -154,7 +154,7 @@ export function Footer() {
             ))}
             <li className="flex items-center gap-2">
               <span aria-hidden="true">·</span>
-              <CookieSettingsLink className="py-1 transition-colors hover:text-accent-400">
+              <CookieSettingsLink className="inline-flex min-h-6 items-center py-1 transition-colors hover:text-accent-400">
                 Preferencias de cookies
               </CookieSettingsLink>
             </li>
